@@ -4,29 +4,39 @@
   import MenuButton from '../Atoms/MenuButton.svelte';
 </script>
 
-<Container classname={'navbar'}>
-  <div class={'categories'}>
+<Container>
+  <nav>
     <MenuButton>Women</MenuButton>
     <MenuButton>Men</MenuButton>
-  </div>
+  </nav>
   <Logo />
   <div>
-    <p>Cart</p>
+    <img src="public/images/cart.png" alt="cart" />
   </div>
 </Container>
 
 <style>
-  .categories {
-    display: flex;
+  nav {
+    min-width: 225px;
   }
 
   div {
-    width: 280px;
+    min-width: 225px;
+    height: 22px;
+  }
+
+  img {
+    height: 100%;
+    width: auto;
   }
 
   @media (max-width: 768px) {
-    .categories {
+    nav {
       display: none;
+    }
+
+    div {
+      min-width: unset;
     }
   }
 </style>

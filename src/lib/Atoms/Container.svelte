@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let classname: string = 'mobile';
+  export let classname: string = 'navbar';
 </script>
 
 <div class={classname}>
@@ -26,6 +26,10 @@
 
   .searchbar {
     display: none;
+  }
+
+  .searchbar > div:first-child {
+    padding: 0px;
   }
 
   .navbar {

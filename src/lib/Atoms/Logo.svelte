@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import svelteLogo from '../../assets/svelte.svg';
 </script>
 
@@ -16,8 +16,14 @@
     gap: 8px;
   }
 
+  div {
+    height: 24px;
+    width: 24px;
+  }
+
   img {
     width: 100%;
+    height: 100%;
   }
 
   a {
@@ -25,5 +31,11 @@
     font-size: 22px;
     font-weight: 700;
     color: #000;
+  }
+
+  @media (max-width: 768px) {
+    a {
+      font-size: 18px;
+    }
   }
 </style>

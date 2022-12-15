@@ -13,8 +13,7 @@
     color: #000;
     cursor: pointer;
     min-width: 64px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
   }
 
   .desktop {

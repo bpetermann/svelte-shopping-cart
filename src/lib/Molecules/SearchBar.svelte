@@ -1,20 +1,17 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   import BurgerButton from '../Atoms/BurgerButton.svelte';
   import Container from '../Atoms/Container.svelte';
+  import Input from '../Atoms/Input.svelte';
+
+  const dispatch = createEventDispatcher();
+  export let searchTerm;
 </script>
 
 <Container classname={'searchbar'}>
-  <BurgerButton on:toggleMenu />
-  <input type="text" placeholder="Search" />
+  <BurgerButton on:click={() => dispatch('toggleMenu')} />
+  <Input
+    value={searchTerm}
+    on:input={(event) => dispatch('searchInput', event.target)}
+  />
 </Container>
-
-<style>
-  input {
-    width: 100%;
-    outline: none;
-    border: none;
-    text-align: start;
-    padding-left: 16px;
-    font-size: 16px;
-  }
-</style>
