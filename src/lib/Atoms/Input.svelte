@@ -11,6 +11,6 @@
     border: none;
     text-align: start;
     padding-left: 16px;
-    font-size: 16px;
+    font-size: 14px;
   }
 </style>

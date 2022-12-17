@@ -5,13 +5,13 @@
   import Input from '../Atoms/Input.svelte';
 
   const dispatch = createEventDispatcher();
-  export let searchTerm;
+  export let searchterm;
 </script>
 
 <Container classname={'searchbar'}>
-  <BurgerButton on:click={() => dispatch('toggleMenu')} />
+  <BurgerButton on:click={() => dispatch('toggle')} />
   <Input
-    value={searchTerm}
-    on:input={(event) => dispatch('searchInput', event.target)}
+    value={searchterm}
+    on:input={(event) => dispatch('input', event.target)}
   />
 </Container>

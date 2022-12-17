@@ -25,10 +25,10 @@
 
   span {
     width: 60%;
-    height: 0.1rem;
+    height: 1.6px;
     background: #525252;
     display: block;
-    margin: 0.6rem 0.4rem;
+    margin: 9px 6.4px;
   }
 
   span:nth-of-type(2) {

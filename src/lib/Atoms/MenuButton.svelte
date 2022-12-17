@@ -24,16 +24,12 @@
     background-color: #efeff0;
   }
 
-  /* .desktop:active {
-    background-color: #000;
-    color: #fff;
-  } */
-
   .mobile {
     padding: 8px 16px;
     color: #666;
     border: 1px solid #d0d1d3;
     border-top: none;
+    font-size: 14px;
   }
 
   .mobile:hover {

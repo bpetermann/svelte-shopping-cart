@@ -1,14 +1,21 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
   import MenuButton from '../Atoms/MenuButton.svelte';
+  const dispatch = createEventDispatcher();
+
+  export let categories: {id: number, name: string}[];
 </script>
 
 <nav>
   <ul>
-    <li><MenuButton classname={'mobile'}>Women</MenuButton></li>
-    <li><MenuButton classname={'mobile'}>Men</MenuButton></li>
-    <li><MenuButton classname={'mobile'}>Kids</MenuButton></li>
-    <li><MenuButton classname={'mobile'}>Shoes</MenuButton></li>
-    <li><MenuButton classname={'mobile'}>Bags</MenuButton></li>
+    {#each categories as { name, id } (id)}
+      <li>
+        <MenuButton
+          classname={'mobile'}
+          on:click={() => dispatch('change', name)}>{name}</MenuButton
+        >
+      </li>
+    {/each}
   </ul>
 </nav>
 
