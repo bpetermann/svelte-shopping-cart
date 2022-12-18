@@ -36,4 +36,10 @@
     color: #000;
     background-color: #d0d1d3;
   }
+
+  .active,
+  .active:hover {
+    background: #000;
+    color: #fff;
+  }
 </style>

@@ -3,7 +3,8 @@
   import MenuButton from '../Atoms/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
-  export let categories: {id: number, name: string}[];
+  export let categories: { id: number; name: string }[];
+  export let category: { id: number; name: string };
 </script>
 
 <nav>
@@ -11,8 +12,8 @@
     {#each categories as { name, id } (id)}
       <li>
         <MenuButton
-          classname={'mobile'}
-          on:click={() => dispatch('change', name)}>{name}</MenuButton
+          classname={`mobile ${category.id === id && 'active'}`}
+          on:click={() => dispatch('change', id)}>{name}</MenuButton
         >
       </li>
     {/each}
