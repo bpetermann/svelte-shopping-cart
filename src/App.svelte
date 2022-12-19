@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Header from './lib/Organisms/Header.svelte';
+  import Template from './lib/Template/Index.svelte';
 </script>
 
-<Header />
+<Template />

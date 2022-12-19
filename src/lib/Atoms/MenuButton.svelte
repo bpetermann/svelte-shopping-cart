@@ -1,5 +1,5 @@
-<script>
-  export let classname = 'desktop';
+<script lang="ts">
+  export let classname: string = 'desktop';
 </script>
 
 <button class={classname} on:click>

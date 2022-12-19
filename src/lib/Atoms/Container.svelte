@@ -45,6 +45,17 @@
     justify-content: center;
   }
 
+  .hero {
+    background-color: #bf0f6a;
+    padding-top: 48px;
+  }
+
+  .hero > div:first-child {
+    align-items: flex-start;
+    gap: 32px;
+
+  }
+
   @media (max-width: 768px) {
     div {
       border-bottom: 1px solid #d0d1d3;
@@ -56,6 +67,12 @@
 
     .infobar {
       display: none;
+    }
+
+    .hero > div:first-child {
+      align-items: center;
+      flex-direction: column;
+      padding: 0px;
     }
   }
 </style>
