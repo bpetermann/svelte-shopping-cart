@@ -26,12 +26,12 @@
 <div class="container">
   <div class="image">
     <img
-      src="/images/products/brogues.png"
+      src="/images/products/{name}.png"
       alt={description}
       title={description}
     />
   </div>
-  <Text size="lg">{name}</Text>
+  <Text size="lg">{description}</Text>
   <Text size="lg">{price}$</Text>
   <button on:click={addToCart}><Text size="lg">Add to Cart</Text></button>
 </div>

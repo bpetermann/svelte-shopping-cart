@@ -5,16 +5,16 @@
   let products: ProductType[] = [
     {
       id: 'i1',
-      name: 'Sandals',
-      description: 'Maroon sandals',
-      price: 24.99,
+      name: 'Brogues',
+      description: 'Green wingtip brogues',
+      price: 89.99,
       amount: 1,
       category: 'Shoes',
     },
     {
       id: 'i2',
-      name: 'Brogues',
-      description: 'Mint green lace up brogues',
+      name: 'Sandals',
+      description: 'Maroon sandals',
       price: 85.99,
       amount: 1,
       category: 'Shoes',
