@@ -1,6 +1,6 @@
 <script lang="ts">
   export let size: string = 'sm bold';
-  export let color: string = `#666`;
+  export let color: string = `#000`;
 </script>
 
 <p class={size} style="--color:{color}">

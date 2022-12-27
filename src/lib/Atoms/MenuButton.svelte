@@ -40,6 +40,7 @@
   .active,
   .active:hover {
     background: #000;
+    border-color: #000;
     color: #fff;
   }
 </style>

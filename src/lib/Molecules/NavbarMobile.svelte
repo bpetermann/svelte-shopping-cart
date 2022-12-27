@@ -23,6 +23,7 @@
 <style scoped>
   nav {
     display: none;
+    background-color: #bf0f6a;
   }
 
   ul {
@@ -31,6 +32,7 @@
 
   li {
     all: unset;
+    background-color: #fff;
   }
 
   @media (max-width: 768px) {
@@ -42,7 +44,6 @@
     ul {
       display: flex;
       flex-wrap: wrap;
-      padding-right: 8px;
     }
   }
 </style>
