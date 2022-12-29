@@ -1,8 +1,10 @@
 <script lang="ts">
-  export let value: String = 'Search';
+  export let value: String = '';
+  export let classname: string;
+  export let marker: string = 'Search';
 </script>
 
-<input type="text" {value} placeholder="Search" on:input />
+<input type="text" class={classname} {value} placeholder={marker} on:input />
 
 <style>
   input {
@@ -10,7 +12,16 @@
     outline: none;
     border: none;
     text-align: start;
-    padding-left: 16px;
     font-size: 14px;
+  }
+
+  .search {
+    padding-left: 16px;
+  }
+
+  .default {
+    padding: 12px 0px;
+    text-align: center;
+    border: 1px solid #d0d1d3;
   }
 </style>

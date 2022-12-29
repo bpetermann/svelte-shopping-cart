@@ -2,6 +2,7 @@
   import type { Product } from '../../types/product.type';
   import Header from '../Organisms/Header.svelte';
   import Hero from '../Organisms/Hero.svelte';
+  import Newsletter from '../Organisms/Newsletter.svelte';
   import Products from '../Organisms/Products.svelte';
 
   let cart: Product[] = [];
@@ -29,3 +30,4 @@
 <Header />
 <Hero />
 <Products on:add={addProduct} />
+<Newsletter />

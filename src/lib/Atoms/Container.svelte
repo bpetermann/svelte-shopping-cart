@@ -90,4 +90,17 @@
   .products {
     background-color: #de97ae;
   }
+
+  /* Newsletter */
+  .newsletter {
+    background-color: #efeff0;
+    margin-bottom: 64px;
+    border-bottom: none;
+  }
+
+  @media (max-width: 768px) {
+    .newsletter > div:first-child {
+      flex-direction: column;
+    }
+  }
 </style>
