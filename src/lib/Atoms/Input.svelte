@@ -20,6 +20,7 @@
   }
 
   .default {
+    margin-bottom: 16px;
     padding: 12px 0px;
     text-align: center;
     border: 1px solid #d0d1d3;

@@ -5,7 +5,8 @@
 <style>
   button {
     all: unset;
-    padding: 6px 8px;
+    margin-top: 16px;
+    padding: 8px;
     color: #fff;
     background-color: #000;
     cursor: pointer;

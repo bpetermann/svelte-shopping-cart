@@ -21,12 +21,12 @@
 
   h3 {
     color: var(--color);
-    font-size: 20px;
+    font-size: 22px;
   }
 
   @media (max-width: 768px) {
     h2 {
-      font-size: 24px;
+      font-size: 28px;
     }
     h3 {
       font-size: 18px;
