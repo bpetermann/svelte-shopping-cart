@@ -10,7 +10,10 @@
     color: #fff;
     background-color: #000;
     cursor: pointer;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   button:hover {

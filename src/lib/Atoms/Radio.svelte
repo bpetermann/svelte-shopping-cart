@@ -17,6 +17,7 @@
   }
 
   input[type='radio'] {
+    flex-shrink: 0;
     appearance: none;
     margin-left: 0px;
     width: 18.4px;

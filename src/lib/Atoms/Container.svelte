@@ -94,13 +94,34 @@
   /* Newsletter */
   .newsletter {
     background-color: #efeff0;
-    margin-bottom: 64px;
+    margin-bottom: 36px;
     border-bottom: none;
   }
 
   @media (max-width: 768px) {
     .newsletter > div:first-child {
       flex-direction: column;
+    }
+  }
+
+  /* FAQs */
+  .faqs {
+    background-color: transparent;
+  }
+
+  .faqs > div:first-child {
+    max-width: 960px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 768px) {
+    .faqs {
+      background-color: #efeff0;
+      border-bottom: none;
+    }
+
+    .faqs > div:first-child {
+      padding: 0px;
     }
   }
 </style>

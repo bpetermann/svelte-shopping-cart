@@ -12,17 +12,24 @@
     outline: none;
     border: none;
     text-align: start;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .search {
     padding-left: 16px;
   }
 
-  .default {
+  .primary {
     margin-bottom: 16px;
     padding: 12px 0px;
     text-align: center;
     border: 1px solid #d0d1d3;
+  }
+
+  .primary:hover,
+  .primary:focus,
+  .primary:active {
+    outline: 1.6px solid #1a1a1a;
+    transition: 40ms outline ease-in-out;
   }
 </style>

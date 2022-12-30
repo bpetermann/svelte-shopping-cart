@@ -20,6 +20,7 @@
 
   .md {
     font-size: 14px;
+    color: #484848;
   }
 
   .lg {

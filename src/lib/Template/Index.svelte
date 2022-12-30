@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { Product } from '../../types/product.type';
+  import FrequentQuestions from '../Organisms/FrequentQuestions.svelte';
   import Header from '../Organisms/Header.svelte';
   import Hero from '../Organisms/Hero.svelte';
   import Newsletter from '../Organisms/Newsletter.svelte';
@@ -31,3 +32,4 @@
 <Hero />
 <Products on:add={addProduct} />
 <Newsletter />
+<FrequentQuestions />

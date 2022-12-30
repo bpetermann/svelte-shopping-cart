@@ -5,7 +5,7 @@
   import NewsletterForm from '../Molecules/NewsletterForm.svelte';
 
   let email: string = '';
-  let interestedIn: string = 'mfashion';
+  let interestedIn: string = 'wfashion';
 
   const newsletterInput = ({ detail }: { detail: string }) => {
     email = detail;
@@ -45,6 +45,7 @@
   @media (max-width: 768px) {
     div {
       align-items: center;
+      padding: 32px 0px;
     }
   }
 </style>

@@ -24,7 +24,7 @@
 
 <form on:submit|preventDefault={() => dispatch('subscribe')}>
   <Input
-    classname={'default'}
+    classname={'primary'}
     marker={'Your Email'}
     on:input={emailInput}
     value={email}
@@ -41,7 +41,10 @@
       {text}</Radio
     >
   {/each}
-  <Button>Add my Email</Button>
+  <Button>
+    <img src="/images/mail.png" alt="Mail icon" />
+    <Text size="lg bold" color="#fff">Add my Email</Text></Button
+  >
   <Text size="sm">You can unsubscribe at any time free of charge.</Text>
 </form>
 
@@ -51,10 +54,18 @@
     flex-direction: column;
     background-color: #fff;
     box-sizing: border-box;
-    padding: 32px 16px;
+    padding: 24px;
     margin-top: 16px;
     gap: 16px;
     width: 100%;
     max-width: 528px;
+  }
+
+  img {
+    height: 100%;
+    max-height: 32px;
+    width: auto;
+    filter: invert(95%) sepia(0%) saturate(7500%) hue-rotate(26deg)
+      brightness(107%) contrast(108%);
   }
 </style>
