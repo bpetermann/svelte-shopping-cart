@@ -21,7 +21,7 @@
     >
   </div>
   {#if open}
-    <div transition:slide class="answer">
+    <div transition:slide>
       <Text size="md">{answer}</Text>
     </div>
   {/if}
@@ -32,14 +32,15 @@
     list-style: none;
     box-sizing: border-box;
     width: 100%;
-    padding: 12px 32px;
     border-bottom: 1px solid #d0d1d3;
+    padding: 0px 32px;
   }
 
   li > div:first-child {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 16px 0px;
   }
 
   button {
@@ -63,10 +64,6 @@
   .question img {
     height: 24px;
     width: 24px;
-  }
-
-  .answer {
-    padding: 24px;
   }
 
   .isOpen {

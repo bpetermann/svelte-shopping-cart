@@ -35,11 +35,13 @@
   };
 </script>
 
-{#if showInfo}
-  <InfoBar on:close={closeInfo} />
-{/if}
-<Navbar {mainCategories} on:change={changeCategory} {category} />
-<SearchBar on:toggle={toggleMenu} on:input={searchInput} {searchterm} />
-{#if isOpen}
-  <NavbarMobile {categories} on:change={changeCategory} {category} />
-{/if}
+<header>
+  {#if showInfo}
+    <InfoBar on:close={closeInfo} />
+  {/if}
+  <Navbar {mainCategories} on:change={changeCategory} {category} />
+  <SearchBar on:toggle={toggleMenu} on:input={searchInput} {searchterm} />
+  {#if isOpen}
+    <NavbarMobile {categories} on:change={changeCategory} {category} />
+  {/if}
+</header>

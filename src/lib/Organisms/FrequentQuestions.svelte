@@ -15,6 +15,12 @@
       answer:
         'You can redeem your promotional voucher in the last step of the order process. Enter the voucher code in the "Vouchers and discount codes" field.',
     },
+    {
+      icon: 'shipping',
+      question: 'Shipping',
+      answer:
+        'If you are shipping internationally, there are several delivery speed options available during the checkout process, usually standard, express and priority delivery.',
+    },
   ];
 </script>
 
