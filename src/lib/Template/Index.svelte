@@ -5,6 +5,7 @@
   import Hero from '../Organisms/Hero.svelte';
   import Newsletter from '../Organisms/Newsletter.svelte';
   import Products from '../Organisms/Products.svelte';
+  import Footer from '../Organisms/Footer.svelte';
 
   let cart: Product[] = [];
 
@@ -33,3 +34,4 @@
 <Products on:add={addProduct} />
 <Newsletter />
 <FrequentQuestions />
+<Footer />

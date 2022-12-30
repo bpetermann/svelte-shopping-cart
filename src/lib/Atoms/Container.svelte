@@ -124,4 +124,21 @@
       padding: 0px;
     }
   }
+
+  /* Footer */
+  .footer {
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+  .footer > div:first-child {
+    align-items: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .footer > div:first-child {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 </style>
