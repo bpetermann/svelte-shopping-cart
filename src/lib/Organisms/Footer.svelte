@@ -2,26 +2,28 @@
   import Container from '../Atoms/Container.svelte';
 </script>
 
-<Container classname="footer">
-  <nav>
-    <ul class="links">
-      <li>About</li>
-      <li>Imprint</li>
-      <li>Terms & Conditions</li>
-      <li>Data settings</li>
-    </ul>
-  </nav>
-  <div>
-    Find more inspiration:
-    <ul class="social-media">
-      <li><img src="/images/facebook.png" alt="facebook icon" /></li>
-      <li><img src="/images/spotify.png" alt="spotify icon" /></li>
-      <li><img src="/images/instagram.png" alt="instagram icon" /></li>
-      <li><img src="/images/youtube.png" alt="youtube icon" /></li>
-      <li><img src="/images/twitter.png" alt="twitter icon" /></li>
-    </ul>
-  </div>
-</Container>
+<footer>
+  <Container classname="footer">
+    <nav>
+      <ul class="links">
+        <li>About</li>
+        <li>Imprint</li>
+        <li>Terms & Conditions</li>
+        <li>Data settings</li>
+      </ul>
+    </nav>
+    <div>
+      Find more inspiration:
+      <ul class="social-media">
+        <li><img src="/images/facebook.png" alt="facebook icon" /></li>
+        <li><img src="/images/spotify.png" alt="spotify icon" /></li>
+        <li><img src="/images/instagram.png" alt="instagram icon" /></li>
+        <li><img src="/images/youtube.png" alt="youtube icon" /></li>
+        <li><img src="/images/twitter.png" alt="twitter icon" /></li>
+      </ul>
+    </div>
+  </Container>
+</footer>
 
 <style>
   nav {

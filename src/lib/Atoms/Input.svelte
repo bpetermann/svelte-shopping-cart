@@ -4,7 +4,7 @@
   export let marker: string = 'Search';
 </script>
 
-<input type="text" class={classname} {value} placeholder={marker} on:input />
+<input type="text" class={classname} bind:value placeholder={marker} />
 
 <style>
   input {

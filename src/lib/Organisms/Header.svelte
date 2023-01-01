@@ -14,6 +14,7 @@
     { id: 5, name: 'Shoes' },
   ];
   let searchterm: string = '';
+  $: console.log(searchterm);
   let category: { id: number; name: string } = { id: 1, name: 'Women' };
 
   $: mainCategories = categories.filter((cat) => cat.id <= 2);
@@ -29,10 +30,6 @@
   const changeCategory = ({ detail }: { detail: number }) => {
     category = categories.find((cat) => cat.id === detail);
   };
-
-  const searchInput = ({ detail }: { detail: string }) => {
-    searchterm = detail;
-  };
 </script>
 
 <header>
@@ -40,7 +37,7 @@
     <InfoBar on:close={closeInfo} />
   {/if}
   <Navbar {mainCategories} on:change={changeCategory} {category} />
-  <SearchBar on:toggle={toggleMenu} on:input={searchInput} {searchterm} />
+  <SearchBar on:toggle={toggleMenu} bind:value={searchterm} />
   {#if isOpen}
     <NavbarMobile {categories} on:change={changeCategory} {category} />
   {/if}

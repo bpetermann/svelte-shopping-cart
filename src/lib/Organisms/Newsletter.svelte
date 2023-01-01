@@ -7,10 +7,6 @@
   let email: string = '';
   let interestedIn: string = 'wfashion';
 
-  const newsletterInput = ({ detail }: { detail: string }) => {
-    email = detail;
-  };
-
   const interestSelect = ({ detail }: { detail: string }) => {
     interestedIn = detail;
   };
@@ -27,11 +23,10 @@
     <Text size="lg">Keep up to date</Text>
   </div>
   <NewsletterForm
-    {email}
     {interestedIn}
     on:subscribe={addNewsletter}
-    on:input={newsletterInput}
     on:change={interestSelect}
+    bind:value={email}
   />
 </Container>
 

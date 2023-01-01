@@ -6,16 +6,12 @@
   import Radio from '../Atoms/Radio.svelte';
 
   const dispatch = createEventDispatcher();
-  export let email: string;
+  export let value: string;
   export let interestedIn: string;
   let interestedOptions: { value: string; text: string; name: string }[] = [
     { value: 'wfashion', text: "Women's Fashion", name: 'interest' },
     { value: 'mfashion', text: "Men's Fashion", name: 'interest' },
   ];
-
-  const emailInput = (event: Event) => {
-    dispatch('input', (event.target as HTMLInputElement).value);
-  };
 
   const interestedInput = (event: Event) => {
     dispatch('change', (event.target as HTMLInputElement).value);
@@ -23,12 +19,7 @@
 </script>
 
 <form on:submit|preventDefault={() => dispatch('subscribe')}>
-  <Input
-    classname={'primary'}
-    marker={'Your Email'}
-    on:input={emailInput}
-    value={email}
-  />
+  <Input classname={'primary'} marker={'Your Email'} bind:value />
   <Text size="lg bold">I'm mostly interested in</Text>
 
   {#each interestedOptions as { value, text, name } (value)}
