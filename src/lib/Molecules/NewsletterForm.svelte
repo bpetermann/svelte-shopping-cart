@@ -2,8 +2,8 @@
   import { createEventDispatcher } from 'svelte';
   import Input from '../Atoms/Input.svelte';
   import Text from '../Atoms/Text.svelte';
-  import Button from '../Atoms/Button.svelte';
-  import Radio from '../Atoms/Radio.svelte';
+  import Button from '../Atoms/Buttons/Button.svelte';
+  import Radio from '../Atoms/Buttons/Radio.svelte';
 
   const dispatch = createEventDispatcher();
   export let value: string;

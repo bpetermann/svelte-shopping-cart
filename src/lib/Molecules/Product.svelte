@@ -2,6 +2,7 @@
   import type { Product } from '../../types/product.type';
   import { createEventDispatcher } from 'svelte';
   import Text from '../Atoms/Text.svelte';
+  import AddButton from '../Atoms/Buttons/AddButton.svelte';
 
   const dispatch = createEventDispatcher();
   export let id: string;
@@ -9,6 +10,8 @@
   export let description: string;
   export let price: number;
   export let category: string;
+
+  let style: string = '';
 
   const addToCart = () => {
     let product: Product = {
@@ -19,7 +22,14 @@
       amount: 1,
       category,
     };
-    dispatch('add', product);
+    style = 'loading';
+    setTimeout(() => {
+      style = 'added';
+      setTimeout(() => {
+        style = '';
+        dispatch('add', product);
+      }, 750);
+    }, 500);
   };
 </script>
 
@@ -33,7 +43,7 @@
   </div>
   <Text size="lg">{description}</Text>
   <Text size="lg">{price}$</Text>
-  <button on:click={addToCart}><Text size="lg">Add to Cart</Text></button>
+  <AddButton on:click={addToCart} {style} />
 </div>
 
 <style>
@@ -55,13 +65,5 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  button {
-    cursor: pointer;
-    background-color: transparent;
-    outline: none;
-    padding: 16px 22px;
-    border: 1px solid #000;
   }
 </style>

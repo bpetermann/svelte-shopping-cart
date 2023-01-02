@@ -88,7 +88,7 @@
   };
 </script>
 
-<Header bind:value={searchterm} on:openCart={toggleCart} {totalCartItems} />
+<Header on:openCart={toggleCart} bind:value={searchterm} {totalCartItems} />
 {#if showCart}
   <Cart
     {cart}

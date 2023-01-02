@@ -1,9 +1,13 @@
 <script lang="ts">
-  export let tag: string = 'h2';
+  export let tag: string = 'h1';
   export let color: string = `#fff`;
 </script>
 
-{#if tag === 'h2'}
+{#if tag === 'h1'}
+  <h1 style="--color:{color}">
+    <slot />
+  </h1>
+{:else if tag === 'h2'}
   <h2 style="--color:{color}">
     <slot />
   </h2>
@@ -14,7 +18,7 @@
 {/if}
 
 <style>
-  h2 {
+  h1 {
     color: var(--color);
     font-size: 32px;
   }
@@ -25,7 +29,7 @@
   }
 
   @media (max-width: 768px) {
-    h2 {
+    h1 {
       font-size: 28px;
     }
     h3 {

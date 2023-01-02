@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte';
   import Container from '../Atoms/Container.svelte';
   import Logo from '../Atoms/Logo.svelte';
-  import MenuButton from '../Atoms/MenuButton.svelte';
+  import MenuButton from '../Atoms/Buttons/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
   export let mainCategories: { id: number; name: string }[];
