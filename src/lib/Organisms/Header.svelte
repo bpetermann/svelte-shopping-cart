@@ -4,6 +4,8 @@
   import NavbarMobile from '../Molecules/NavbarMobile.svelte';
   import SearchBar from '../Molecules/SearchBar.svelte';
 
+  export let totalCartItems: number;
+  
   let showInfo: boolean = true;
   let isOpen: boolean = false;
   let categories: { id: number; name: string }[] = [
@@ -36,7 +38,13 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar {mainCategories} on:change={changeCategory} {category} on:openCart />
+  <Navbar
+    {mainCategories}
+    {totalCartItems}
+    {category}
+    on:change={changeCategory}
+    on:openCart
+  />
   <SearchBar on:toggle={toggleMenu} bind:value={searchterm} />
   {#if isOpen}
     <NavbarMobile {categories} on:change={changeCategory} {category} />

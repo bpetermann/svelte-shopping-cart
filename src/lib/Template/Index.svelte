@@ -11,6 +11,10 @@
   let cart: Product[] = [];
   let showCart: boolean = false;
 
+  $: totalCartItems = cart.reduce(function (acc, item) {
+    return acc + item.amount;
+  }, 0);
+
   const toggleCart = () => {
     showCart = !showCart;
   };
@@ -54,7 +58,7 @@
   };
 </script>
 
-<Header on:openCart={toggleCart} />
+<Header on:openCart={toggleCart} {totalCartItems} />
 {#if showCart}
   <Cart
     {cart}

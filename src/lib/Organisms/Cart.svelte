@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import type { Product } from '../../types/product.type';
+  import Modal from '../Molecules/Modal.svelte';
   const dispatch = createEventDispatcher();
 
   export let cart: Product[] = [];
@@ -22,12 +23,7 @@
   };
 </script>
 
-<div
-  class="modal-backdrop"
-  on:click={() => dispatch('close')}
-  on:keypress={() => dispatch('close')}
-/>
-<div class="modal">
+<Modal on:close>
   <div class="content">
     {#if !cart.length}
       <button class="close-button" on:click={() => dispatch('close')}>
@@ -57,31 +53,10 @@
       </div>
       <button class="order-button">Order</button>
     {/if}
-  </div>
-</div>
+  </div></Modal
+>
 
 <style>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 10;
-  }
-
-  .modal {
-    position: fixed;
-    text-align: center;
-    left: 30%;
-    top: 25%;
-    width: 40%;
-    background-color: #fff;
-    overflow: scroll;
-    z-index: 10;
-  }
-
   .content {
     padding: 16px;
     display: flex;
@@ -165,12 +140,5 @@
     padding: 12px;
     outline: none;
     border: none;
-  }
-
-  @media (max-width: 768px) {
-    .modal {
-      left: 5%;
-      width: 90%;
-    }
   }
 </style>

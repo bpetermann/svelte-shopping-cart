@@ -7,6 +7,7 @@
 
   export let mainCategories: { id: number; name: string }[];
   export let category: { id: number; name: string };
+  export let totalCartItems: number;
 </script>
 
 <Container>
@@ -21,7 +22,8 @@
   <Logo />
   <div>
     <button on:click={() => dispatch('openCart')}>
-      <img src="/images/cart.png" alt="cart" /></button
+      <img src="/images/cart.png" alt="cart" />
+      <span>{totalCartItems}</span></button
     >
   </div>
 </Container>
@@ -42,11 +44,28 @@
     all: unset;
     cursor: pointer;
     height: 22px;
+    padding-right: 16px;
   }
 
   img {
     height: 100%;
     width: auto;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: -32px;
+    left: 14px;
+    border-radius: 50%;
+    background-color: #ff6900;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
   }
 
   @media (max-width: 768px) {
