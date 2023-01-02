@@ -8,7 +8,7 @@
       <span>
         <img
           class="spinner"
-          src="/public/images/spinner.gif"
+          src="/images/spinner.gif"
           alt="Loading..."
         /></span
       >

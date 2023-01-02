@@ -14,7 +14,7 @@
   let products: Product[] = [
     {
       id: 'i1',
-      name: 'Brogues',
+      name: 'Brogue',
       description: 'Green wingtip brogues',
       price: 89.99,
       amount: 1,
