@@ -14,6 +14,7 @@
   const addNewsletter = () => {
     console.log(email);
     console.log(interestedIn);
+    (email = ''), (interestedIn = 'wfashion');
   };
 </script>
 

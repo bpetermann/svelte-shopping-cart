@@ -14,7 +14,7 @@
     { id: 5, name: 'Shoes' },
   ];
   let searchterm: string = '';
-  $: console.log(searchterm);
+
   let category: { id: number; name: string } = { id: 1, name: 'Women' };
 
   $: mainCategories = categories.filter((cat) => cat.id <= 2);
@@ -36,7 +36,7 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar {mainCategories} on:change={changeCategory} {category} />
+  <Navbar {mainCategories} on:change={changeCategory} {category} on:openCart />
   <SearchBar on:toggle={toggleMenu} bind:value={searchterm} />
   {#if isOpen}
     <NavbarMobile {categories} on:change={changeCategory} {category} />

@@ -20,7 +20,9 @@
   </nav>
   <Logo />
   <div>
-    <button> <img src="/images/cart.png" alt="cart" /></button>
+    <button on:click={() => dispatch('openCart')}>
+      <img src="/images/cart.png" alt="cart" /></button
+    >
   </div>
 </Container>
 

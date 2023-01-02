@@ -7,7 +7,6 @@
     all: unset;
     margin-top: 16px;
     padding: 8px;
-    color: #fff;
     background-color: #000;
     cursor: pointer;
     display: flex;
