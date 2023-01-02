@@ -10,7 +10,37 @@
 
   let cart: Product[] = [];
   let showCart: boolean = false;
+  let searchterm: string = '';
+  let products: Product[] = [
+    {
+      id: 'i1',
+      name: 'Brogues',
+      description: 'Green wingtip brogues',
+      price: 89.99,
+      amount: 1,
+      category: 'Shoes',
+    },
+    {
+      id: 'i2',
+      name: 'Sandals',
+      description: 'Maroon sandals',
+      price: 85.99,
+      amount: 1,
+      category: 'Shoes',
+    },
+    {
+      id: 'i3',
+      name: 'Sneakers',
+      description: 'Multi-coloured Sneakers',
+      price: 69.99,
+      amount: 1,
+      category: 'Shoes',
+    },
+  ];
 
+  $: searchedProducts = products.filter((item) => {
+    return item.description.toLowerCase().includes(searchterm.toLowerCase());
+  });
   $: totalCartItems = cart.reduce(function (acc, item) {
     return acc + item.amount;
   }, 0);
@@ -58,7 +88,7 @@
   };
 </script>
 
-<Header on:openCart={toggleCart} {totalCartItems} />
+<Header bind:value={searchterm} on:openCart={toggleCart} {totalCartItems} />
 {#if showCart}
   <Cart
     {cart}
@@ -68,7 +98,7 @@
   />
 {/if}
 <Hero />
-<Products on:add={addProduct} />
+<Products products={searchedProducts} on:add={addProduct} />
 <Newsletter />
 <Faqs />
 <Footer />

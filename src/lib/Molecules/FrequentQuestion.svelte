@@ -66,6 +66,10 @@
     width: 24px;
   }
 
+  div + div {
+    padding: 8px 0px;
+  }
+
   .isOpen {
     border-bottom: none;
     transition: all 0.2s ease-in-out;

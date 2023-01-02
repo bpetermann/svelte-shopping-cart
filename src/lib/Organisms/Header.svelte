@@ -5,7 +5,8 @@
   import SearchBar from '../Molecules/SearchBar.svelte';
 
   export let totalCartItems: number;
-  
+  export let value: string = '';
+
   let showInfo: boolean = true;
   let isOpen: boolean = false;
   let categories: { id: number; name: string }[] = [
@@ -15,7 +16,6 @@
     { id: 4, name: 'Bags' },
     { id: 5, name: 'Shoes' },
   ];
-  let searchterm: string = '';
 
   let category: { id: number; name: string } = { id: 1, name: 'Women' };
 
@@ -45,7 +45,7 @@
     on:change={changeCategory}
     on:openCart
   />
-  <SearchBar on:toggle={toggleMenu} bind:value={searchterm} />
+  <SearchBar on:toggle={toggleMenu} bind:value/>
   {#if isOpen}
     <NavbarMobile {categories} on:change={changeCategory} {category} />
   {/if}

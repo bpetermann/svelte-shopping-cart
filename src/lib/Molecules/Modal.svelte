@@ -3,19 +3,13 @@
   const dispatch = createEventDispatcher();
 </script>
 
-<div
-  class="modal-backdrop"
-  on:click={() => dispatch('close')}
-  on:keypress={() => dispatch('close')}
-/>
-<div class="modal">
-  <div class="content">
-    <slot />
-  </div>
-</div>
+<div on:click={() => dispatch('close')} on:keypress={() => dispatch('close')} />
+<section>
+  <slot />
+</section>
 
 <style>
-  .modal-backdrop {
+  div {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,7 +19,7 @@
     z-index: 10;
   }
 
-  .modal {
+  section {
     position: fixed;
     text-align: center;
     left: 30%;
@@ -37,7 +31,7 @@
   }
 
   @media (max-width: 768px) {
-    .modal {
+    section {
       left: 5%;
       width: 90%;
     }

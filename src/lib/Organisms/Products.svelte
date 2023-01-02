@@ -2,32 +2,8 @@
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
   import Product from '../Molecules/Product.svelte';
-  let products: ProductType[] = [
-    {
-      id: 'i1',
-      name: 'Brogues',
-      description: 'Green wingtip brogues',
-      price: 89.99,
-      amount: 1,
-      category: 'Shoes',
-    },
-    {
-      id: 'i2',
-      name: 'Sandals',
-      description: 'Maroon sandals',
-      price: 85.99,
-      amount: 1,
-      category: 'Shoes',
-    },
-    {
-      id: 'i3',
-      name: 'Sneakers',
-      description: 'Multi-coloured Sneakers',
-      price: 69.99,
-      amount: 1,
-      category: 'Shoes',
-    },
-  ];
+
+  export let products: ProductType[];
 </script>
 
 <Container classname="products">
