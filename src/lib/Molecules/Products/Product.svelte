@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { Product } from '../../types/product.type';
+  import type { Product } from '../../../types/product.type';
   import { createEventDispatcher } from 'svelte';
-  import Text from '../Atoms/Text.svelte';
-  import AddButton from '../Atoms/Buttons/AddButton.svelte';
-
+  import Text from '../../Atoms/Text.svelte';
+  import AddButton from '../../Atoms/Buttons/AddButton.svelte';
   const dispatch = createEventDispatcher();
+
   export let id: string;
   export let name: string;
   export let description: string;

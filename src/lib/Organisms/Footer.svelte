@@ -1,27 +1,46 @@
 <script lang="ts">
   import Container from '../Atoms/Container.svelte';
+
+  let pageLinks: string[] = [
+    'About',
+    'Imprint',
+    'Terms & Conditions',
+    'Data settings',
+  ];
+
+  let socialMediaLinks: string[] = [
+    'facebook',
+    'spotify',
+    'instagram',
+    'youtube',
+    'twitter',
+  ];
 </script>
 
 <footer>
   <Container classname="footer">
-    <nav>
-      <ul class="links">
-        <li>About</li>
-        <li>Imprint</li>
-        <li>Terms & Conditions</li>
-        <li>Data settings</li>
+    <nav class="page-links">
+      <ul>
+        {#each pageLinks as pageLink, index (index)}
+          <li>
+            {pageLink}
+          </li>
+        {/each}
       </ul>
     </nav>
-    <div>
+    <nav class="social-media">
       Find more inspiration:
-      <ul class="social-media">
-        <li><img src="/images/facebook.png" alt="facebook icon" /></li>
-        <li><img src="/images/spotify.png" alt="spotify icon" /></li>
-        <li><img src="/images/instagram.png" alt="instagram icon" /></li>
-        <li><img src="/images/youtube.png" alt="youtube icon" /></li>
-        <li><img src="/images/twitter.png" alt="twitter icon" /></li>
+      <ul>
+        {#each socialMediaLinks as socialMediaLink, index (index)}
+          <li>
+            <img
+              src={`/images/${socialMediaLink}.png`}
+              alt={`${socialMediaLink} icon`}
+            />
+          </li>
+        {/each}
       </ul>
-    </div>
+    </nav>
   </Container>
 </footer>
 
@@ -31,7 +50,7 @@
     padding: 8px 0px;
   }
 
-  .links {
+  .page-links > ul {
     display: flex;
     gap: 8px;
     align-items: flex-start;
@@ -50,12 +69,13 @@
     border-right: none;
   }
 
-  div {
+  .social-media {
+    all: unset;
     text-align: left;
     padding: 24px 0px;
   }
 
-  .social-media {
+  .social-media > ul {
     display: flex;
     gap: 8px;
     padding: 0px;
@@ -74,7 +94,7 @@
   }
 
   @media (max-width: 768px) {
-    div {
+    .social-media {
       text-align: center;
     }
   }

@@ -1,11 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import BurgerButton from '../Atoms/Buttons/BurgerButton.svelte';
-  import Container from '../Atoms/Container.svelte';
-  import Input from '../Atoms/Input.svelte';
-
+  import BurgerButton from '../../Atoms/Buttons/BurgerButton.svelte';
+  import Container from '../../Atoms/Container.svelte';
+  import Input from '../../Atoms/Input.svelte';
   const dispatch = createEventDispatcher();
-  
+
   export let value: string;
 </script>
 

@@ -2,7 +2,7 @@
   import Container from '../Atoms/Container.svelte';
   import Heading from '../Atoms/Heading.svelte';
   import Text from '../Atoms/Text.svelte';
-  import NewsletterForm from '../Molecules/NewsletterForm.svelte';
+  import NewsletterForm from '../Molecules/Newsletter/NewsletterForm.svelte';
 
   let email: string = '';
   let interestedIn: string = 'wfashion';
@@ -11,9 +11,8 @@
     interestedIn = detail;
   };
 
-  const addNewsletter = () => {
-    console.log(email);
-    console.log(interestedIn);
+  const addNewsletter: () => void = () => {
+    console.log(email + interestedIn);
     (email = ''), (interestedIn = 'wfashion');
   };
 </script>
@@ -24,10 +23,11 @@
     <Text size="lg">Keep up to date</Text>
   </div>
   <NewsletterForm
-    {interestedIn}
     on:subscribe={addNewsletter}
     on:change={interestSelect}
     bind:value={email}
+    {interestedIn}
+
   />
 </Container>
 

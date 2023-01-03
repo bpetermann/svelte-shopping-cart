@@ -9,12 +9,12 @@
 
 <style>
   button {
-    width: 3rem;
+    width: 48px;
     border: none;
     cursor: pointer;
     background-color: #fff;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
     vertical-align: middle;
     border-right: 1px solid #d0d1d3;
   }

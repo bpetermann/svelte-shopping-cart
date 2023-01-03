@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import type { Product } from '../../types/product.type';
+  import type { Product } from '../../../types/product.type';
   const dispatch = createEventDispatcher();
 
   export let cart: Product[];
@@ -44,30 +44,35 @@
     border-bottom: 1px solid #d0d1d3;
   }
 
+  li > div:first-child {
+    width: 50%;
+  }
+
   h4 {
     text-align: left;
   }
 
   h4 + div {
     display: flex;
-    width: 8rem;
     justify-content: space-between;
+    width: 100%;
+    gap: 8px;
   }
 
   li > div:last-child {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 16px;
   }
 
   button {
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     background-color: #fff;
     outline: none;
     border: 1px solid #000;
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   button:hover {

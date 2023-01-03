@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import MenuButton from '../Atoms/Buttons/MenuButton.svelte';
+  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
   export let categories: { id: number; name: string }[];

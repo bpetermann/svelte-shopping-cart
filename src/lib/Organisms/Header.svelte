@@ -1,10 +1,10 @@
 <script lang="ts">
-  import InfoBar from '../Molecules/InfoBar.svelte';
-  import Navbar from '../Molecules/Navbar.svelte';
-  import NavbarMobile from '../Molecules/NavbarMobile.svelte';
-  import SearchBar from '../Molecules/SearchBar.svelte';
+  import InfoBar from '../Molecules/Header/InfoBar.svelte';
+  import Navbar from '../Molecules/Header/Navbar.svelte';
+  import NavbarMobile from '../Molecules/Header/NavbarMobile.svelte';
+  import SearchBar from '../Molecules/Header/SearchBar.svelte';
 
-  export let totalCartItems: number;
+  export let cartLength: number;
   export let value: string = '';
 
   let showInfo: boolean = true;
@@ -17,9 +17,9 @@
     { id: 5, name: 'Shoes' },
   ];
 
-  let category: { id: number; name: string } = { id: 1, name: 'Women' };
+  let category: { id: number; name: string } = categories[0];
 
-  $: mainCategories = categories.filter((cat) => cat.id <= 2);
+  $: mainCategories = categories.filter((item) => item.id <= 2);
 
   const closeInfo: () => void = () => {
     showInfo = !showInfo;
@@ -30,7 +30,7 @@
   };
 
   const changeCategory = ({ detail }: { detail: number }) => {
-    category = categories.find((cat) => cat.id === detail);
+    category = categories.find((item) => item.id === detail);
   };
 </script>
 
@@ -39,14 +39,14 @@
     <InfoBar on:close={closeInfo} />
   {/if}
   <Navbar
-    {mainCategories}
-    {totalCartItems}
-    {category}
-    on:change={changeCategory}
     on:openCart
+    on:change={changeCategory}
+    {mainCategories}
+    {cartLength}
+    {category}
   />
-  <SearchBar on:toggle={toggleMenu} bind:value/>
+  <SearchBar on:toggle={toggleMenu} bind:value />
   {#if isOpen}
-    <NavbarMobile {categories} on:change={changeCategory} {category} />
+    <NavbarMobile on:change={changeCategory} {categories} {category} />
   {/if}
 </header>

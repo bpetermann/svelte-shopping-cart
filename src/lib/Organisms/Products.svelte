@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
-  import Product from '../Molecules/Product.svelte';
+  import Product from '../Molecules/Products/Product.svelte';
 
   export let products: ProductType[];
 </script>

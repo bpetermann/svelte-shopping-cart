@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import type { Product } from '../../types/product.type';
-  import CartModalProduct from '../Molecules/CartModalProduct.svelte';
-  import Modal from '../Molecules/Modal.svelte';
+  import CartModalProduct from '../Molecules/Cart/CartModalProduct.svelte';
+  import Modal from '../Molecules/Cart/Modal.svelte';
   const dispatch = createEventDispatcher();
 
   export let cart: Product[] = [];
@@ -22,13 +22,13 @@
       <ul>
         {#each cart as { name, amount, price, id } (id)}
           <CartModalProduct
+            on:add
+            on:remove
             {cart}
             {name}
             {amount}
             {price}
             {id}
-            on:add
-            on:remove
           />
         {/each}
       </ul>

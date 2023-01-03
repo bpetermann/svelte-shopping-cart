@@ -1,11 +1,11 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import Input from '../Atoms/Input.svelte';
-  import Text from '../Atoms/Text.svelte';
-  import Button from '../Atoms/Buttons/Button.svelte';
-  import Radio from '../Atoms/Buttons/Radio.svelte';
-
+  import Input from '../../Atoms/Input.svelte';
+  import Text from '../../Atoms/Text.svelte';
+  import Button from '../../Atoms/Buttons/Button.svelte';
+  import Radio from '../../Atoms/Buttons/Radio.svelte';
   const dispatch = createEventDispatcher();
+
   export let value: string;
   export let interestedIn: string;
   let interestedOptions: { value: string; text: string; name: string }[] = [
@@ -13,7 +13,7 @@
     { value: 'mfashion', text: "Men's Fashion", name: 'interest' },
   ];
 
-  const interestedInput = (event: Event) => {
+  const interestedInput: (event: Event) => void = (event) => {
     dispatch('change', (event.target as HTMLInputElement).value);
   };
 </script>
@@ -25,9 +25,9 @@
   {#each interestedOptions as { value, text, name } (value)}
     <Radio
       checked={interestedIn === value}
+      on:change={interestedInput}
       {name}
       {value}
-      on:change={interestedInput}
     >
       {text}</Radio
     >

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Text from '../Atoms/Text.svelte';
+  import Text from '../../Atoms/Text.svelte';
   import { slide } from 'svelte/transition';
 
   export let icon: string;
@@ -7,7 +7,7 @@
   export let answer: string;
   let open: boolean = false;
 
-  const handleClick = () => (open = !open);
+  const toggleOpen: () => boolean = () => (open = !open);
 </script>
 
 <li class:isOpen={open}>
@@ -16,7 +16,7 @@
       <img src="/images/{icon}.png" alt="{icon} icon" />
       <Text size="lg">{question}</Text>
     </div>
-    <button on:click={handleClick}>
+    <button on:click={toggleOpen}>
       <img src="/images/expand.png" alt="Arrow icon" /></button
     >
   </div>

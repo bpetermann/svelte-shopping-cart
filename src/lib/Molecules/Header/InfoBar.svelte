@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import Container from '../Atoms/Container.svelte';
-  import Text from '../Atoms/Text.svelte';
+  import Container from '../../Atoms/Container.svelte';
+  import Text from '../../Atoms/Text.svelte';
   const dispatch = createEventDispatcher();
 </script>
 

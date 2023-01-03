@@ -1,13 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import Container from '../Atoms/Container.svelte';
-  import Logo from '../Atoms/Logo.svelte';
-  import MenuButton from '../Atoms/Buttons/MenuButton.svelte';
+  import Container from '../../Atoms/Container.svelte';
+  import Logo from '../../Atoms/Logo.svelte';
+  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
   export let mainCategories: { id: number; name: string }[];
   export let category: { id: number; name: string };
-  export let totalCartItems: number;
+  export let cartLength: number;
 </script>
 
 <Container>
@@ -23,7 +23,7 @@
   <div>
     <button on:click={() => dispatch('openCart')}>
       <img src="/images/cart.png" alt="cart" />
-      <span>{totalCartItems}</span></button
+      <span>{cartLength}</span></button
     >
   </div>
 </Container>
