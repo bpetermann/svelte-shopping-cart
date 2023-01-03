@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Template from './lib/Template/index.svelte';
+  import Template from '../src/lib/Template/Index.svelte';
   import type { Product } from './types/product.type';
 
   let cart: Product[] = [];
