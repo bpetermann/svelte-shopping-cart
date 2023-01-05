@@ -1,9 +1,4 @@
-<script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
-</script>
-
-<div on:click={() => dispatch('close')} on:keypress={() => dispatch('close')} />
+<div on:click on:keypress />
 <section>
   <slot />
 </section>

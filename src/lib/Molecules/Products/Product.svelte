@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Product } from '../../../types/product.type';
   import { createEventDispatcher } from 'svelte';
   import Text from '../../Atoms/Text.svelte';
   import AddButton from '../../Atoms/Buttons/AddButton.svelte';
@@ -9,25 +8,16 @@
   export let name: string;
   export let description: string;
   export let price: number;
-  export let category: string;
 
   let style: string = '';
 
-  const addToCart = () => {
-    let product: Product = {
-      id,
-      name,
-      description,
-      price,
-      amount: 1,
-      category,
-    };
+  const addProduct = () => {
     style = 'loading';
     setTimeout(() => {
       style = 'added';
       setTimeout(() => {
         style = '';
-        dispatch('add', product);
+        dispatch('get', id);
       }, 750);
     }, 500);
   };
@@ -43,7 +33,7 @@
   </div>
   <Text size="lg">{description}</Text>
   <Text size="lg">{price}$</Text>
-  <AddButton on:click={addToCart} {style} />
+  <AddButton on:click={addProduct} {style} />
 </div>
 
 <style>

@@ -7,6 +7,17 @@
 
   export let cart: Product[] = [];
 
+  const updateProduct = ({
+    detail,
+  }: {
+    detail: { event: string; id: string };
+  }) => {
+    let product: Product = cart.find((product) => product.id === detail.id);
+    detail.event === '+'
+      ? dispatch('add', product)
+      : dispatch('remove', product);
+  };
+
   $: totalPrice = cart
     .reduce(function (acc, prod) {
       return acc + prod.amount * prod.price;
@@ -14,7 +25,7 @@
     .toFixed(2);
 </script>
 
-<Modal on:close>
+<Modal on:click={() => dispatch('close')} on:keypress={() => dispatch('close')}>
   <section>
     {#if !cart.length}
       <button on:click={() => dispatch('close')}> No items (yet!) </button>
@@ -22,9 +33,7 @@
       <ul>
         {#each cart as { name, amount, price, id } (id)}
           <CartModalProduct
-            on:add
-            on:remove
-            {cart}
+            on:get={updateProduct}
             {name}
             {amount}
             {price}

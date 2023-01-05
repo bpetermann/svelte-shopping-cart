@@ -1,22 +1,14 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import type { Product } from '../../../types/product.type';
   const dispatch = createEventDispatcher();
 
-  export let cart: Product[];
   export let name: String;
   export let amount: number;
   export let price: number;
   export let id: string;
 
-  const addToCart = (id: string) => {
-    let product: Product = cart.find((product) => product.id === id);
-    dispatch('add', product);
-  };
-
-  const removeProduct = (id: string) => {
-    let product: Product = cart.find((product) => product.id === id);
-    dispatch('remove', product);
+  const sendDetails = (e: Event, id: string) => {
+    dispatch('get', { event: (e.target as HTMLInputElement).innerText, id });
   };
 </script>
 
@@ -29,8 +21,8 @@
     </div>
   </div>
   <div>
-    <button on:click={() => addToCart(id)}>+</button>
-    <button on:click={() => removeProduct(id)}>–</button>
+    <button on:click={(e) => sendDetails(e, id)}>+</button>
+    <button on:click={(e) => sendDetails(e, id)}>-</button>
   </div>
 </li>
 

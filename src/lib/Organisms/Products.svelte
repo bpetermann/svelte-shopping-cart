@@ -1,16 +1,25 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
   import Product from '../Molecules/Products/Product.svelte';
+  const dispatch = createEventDispatcher();
 
   export let products: ProductType[];
+
+  const addToCart = ({ detail }: { detail: string }) => {
+    let product: ProductType = products.find(
+      (product) => product.id === detail
+    );
+    dispatch('add', product);
+  };
 </script>
 
 <Container classname="products">
   <ul>
-    {#each products as { id, name, price, description, category } (id)}
+    {#each products as { id, name, price, description } (id)}
       <li>
-        <Product {id} {name} {description} {price} {category} on:add />
+        <Product on:get={addToCart} {id} {name} {description} {price} />
       </li>
     {/each}
   </ul>
