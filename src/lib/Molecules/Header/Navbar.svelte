@@ -1,4 +1,5 @@
 <script lang="ts">
+  import cart from '../../../store/cart-store';
   import { createEventDispatcher } from 'svelte';
   import Container from '../../Atoms/Container.svelte';
   import Logo from '../../Atoms/Logo.svelte';
@@ -7,7 +8,10 @@
 
   export let mainCategories: { id: number; name: string }[];
   export let category: { id: number; name: string };
-  export let cartLength: number;
+
+  $: cartLength = $cart.reduce(function (acc, item) {
+    return acc + item.amount;
+  }, 0);
 </script>
 
 <Container>

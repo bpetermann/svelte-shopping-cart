@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import cart from '../../store/cart-store';
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
   import Product from '../Molecules/Products/Product.svelte';
-  const dispatch = createEventDispatcher();
 
   export let products: ProductType[];
 
@@ -11,7 +10,7 @@
     let product: ProductType = products.find(
       (product) => product.id === detail
     );
-    dispatch('add', product);
+    cart.add(product);
   };
 </script>
 

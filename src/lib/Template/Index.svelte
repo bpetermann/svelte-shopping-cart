@@ -8,19 +8,17 @@
   import Faqs from '../Organisms/Faqs.svelte';
   import Footer from '../Organisms/Footer.svelte';
 
-  export let cart: Product[] = [];
   export let value: string;
-  export let cartLength: number;
   export let searchProducts: Product[];
   export let showCart: boolean;
 </script>
 
-<Header on:openCart bind:value {cartLength} />
+<Header on:openCart bind:value />
 {#if showCart}
-  <Cart on:close on:add on:remove {cart} />
+  <Cart on:close />
 {/if}
 <Hero />
-<Products on:add products={searchProducts} />
+<Products products={searchProducts} />
 <Newsletter />
 <Faqs />
 <Footer />

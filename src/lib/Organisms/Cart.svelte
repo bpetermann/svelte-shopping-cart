@@ -1,24 +1,21 @@
 <script lang="ts">
+  import cart from '../../store/cart-store';
   import { createEventDispatcher } from 'svelte';
   import type { Product } from '../../types/product.type';
   import CartModalProduct from '../Molecules/Cart/CartModalProduct.svelte';
   import Modal from '../Molecules/Cart/Modal.svelte';
   const dispatch = createEventDispatcher();
 
-  export let cart: Product[] = [];
-
   const updateProduct = ({
     detail,
   }: {
     detail: { event: string; id: string };
   }) => {
-    let product: Product = cart.find((product) => product.id === detail.id);
-    detail.event === '+'
-      ? dispatch('add', product)
-      : dispatch('remove', product);
+    let product: Product = $cart.find((product) => product.id === detail.id);
+    detail.event === '+' ? cart.add(product) : cart.remove(product);
   };
 
-  $: totalPrice = cart
+  $: totalPrice = $cart
     .reduce(function (acc, prod) {
       return acc + prod.amount * prod.price;
     }, 0)
@@ -27,11 +24,11 @@
 
 <Modal on:click={() => dispatch('close')} on:keypress={() => dispatch('close')}>
   <section>
-    {#if !cart.length}
+    {#if !$cart.length}
       <button on:click={() => dispatch('close')}> No items (yet!) </button>
     {:else}
       <ul>
-        {#each cart as { name, amount, price, id } (id)}
+        {#each $cart as { name, amount, price, id } (id)}
           <CartModalProduct
             on:get={updateProduct}
             {name}

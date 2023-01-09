@@ -4,7 +4,6 @@
   import NavbarMobile from '../Molecules/Header/NavbarMobile.svelte';
   import SearchBar from '../Molecules/Header/SearchBar.svelte';
 
-  export let cartLength: number;
   export let value: string = '';
 
   let showInfo: boolean = true;
@@ -42,7 +41,6 @@
     on:openCart
     on:change={changeCategory}
     {mainCategories}
-    {cartLength}
     {category}
   />
   <SearchBar on:toggle={toggleMenu} bind:value />
