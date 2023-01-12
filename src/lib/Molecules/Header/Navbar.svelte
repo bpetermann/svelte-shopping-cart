@@ -25,7 +25,7 @@
   </nav>
   <Logo />
   <div>
-    <button on:click={() => dispatch('openCart')}>
+    <button on:click={() => dispatch('open')}>
       <img src="/images/cart.png" alt="cart" />
       <span>{cartLength}</span></button
     >

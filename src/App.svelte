@@ -41,9 +41,9 @@
 </script>
 
 <Template
-  on:openCart={toggleCart}
   bind:value={searchterm}
   on:close={toggleCart}
+  on:open={toggleCart}
   {searchProducts}
   {showCart}
 />

@@ -13,7 +13,7 @@
   export let showCart: boolean;
 </script>
 
-<Header on:openCart bind:value />
+<Header on:open bind:value />
 {#if showCart}
   <Cart on:close />
 {/if}

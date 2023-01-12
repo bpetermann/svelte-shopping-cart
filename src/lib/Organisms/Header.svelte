@@ -38,8 +38,8 @@
     <InfoBar on:close={closeInfo} />
   {/if}
   <Navbar
-    on:openCart
     on:change={changeCategory}
+    on:open
     {mainCategories}
     {category}
   />
