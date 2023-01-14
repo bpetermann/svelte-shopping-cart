@@ -8,17 +8,15 @@
   import Faqs from '../Organisms/Faqs.svelte';
   import Footer from '../Organisms/Footer.svelte';
 
-  export let value: string;
-  export let searchProducts: Product[];
   export let showCart: boolean;
 </script>
 
-<Header on:open bind:value />
+<Header on:toggle />
 {#if showCart}
-  <Cart on:close />
+  <Cart on:toggle />
 {/if}
 <Hero />
-<Products products={searchProducts} />
+<Products />
 <Newsletter />
 <Faqs />
 <Footer />

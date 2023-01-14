@@ -1,13 +1,17 @@
 <script lang="ts">
+  import products from '../../store/products-store';
+  import searchTerm from '../../store/search-store';
   import cart from '../../store/cart-store';
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
   import Product from '../Molecules/Products/Product.svelte';
 
-  export let products: ProductType[];
+  $: searchProducts = $products.filter((item) => {
+    return item.description.toLowerCase().includes($searchTerm.toLowerCase());
+  });
 
   const addToCart = ({ detail }: { detail: string }) => {
-    let product: ProductType = products.find(
+    let product: ProductType = $products.find(
       (product) => product.id === detail
     );
     cart.add(product);
@@ -16,7 +20,7 @@
 
 <Container classname="products">
   <ul>
-    {#each products as { id, name, price, description } (id)}
+    {#each searchProducts as { id, name, price, description } (id)}
       <li>
         <Product on:get={addToCart} {id} {name} {description} {price} />
       </li>

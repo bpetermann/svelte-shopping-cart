@@ -1,10 +1,11 @@
 <script lang="ts">
+  import searchTerm from '../../store/search-store';
   import InfoBar from '../Molecules/Header/InfoBar.svelte';
   import Navbar from '../Molecules/Header/Navbar.svelte';
   import NavbarMobile from '../Molecules/Header/NavbarMobile.svelte';
   import SearchBar from '../Molecules/Header/SearchBar.svelte';
 
-  export let value: string = '';
+  let value: string = '';
 
   let showInfo: boolean = true;
   let isOpen: boolean = false;
@@ -19,6 +20,7 @@
   let category: { id: number; name: string } = categories[0];
 
   $: mainCategories = categories.filter((item) => item.id <= 2);
+  $: $searchTerm = value;
 
   const closeInfo: () => void = () => {
     showInfo = !showInfo;
@@ -37,12 +39,7 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar
-    on:change={changeCategory}
-    on:open
-    {mainCategories}
-    {category}
-  />
+  <Navbar on:change={changeCategory} on:toggle {mainCategories} {category} />
   <SearchBar on:toggle={toggleMenu} bind:value />
   {#if isOpen}
     <NavbarMobile on:change={changeCategory} {categories} {category} />
