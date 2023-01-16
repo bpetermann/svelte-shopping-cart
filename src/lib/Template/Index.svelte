@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Product } from '../../types/product.type';
   import Header from '../Organisms/Header.svelte';
   import Cart from '../Organisms/Cart.svelte';
   import Hero from '../Organisms/Hero.svelte';

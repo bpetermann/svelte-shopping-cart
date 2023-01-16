@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { slide } from 'svelte/transition';
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
@@ -7,7 +8,7 @@
   export let category: { id: number; name: string };
 </script>
 
-<nav>
+<nav transition:slide>
   <ul>
     {#each categories as { name, id } (id)}
       <li>

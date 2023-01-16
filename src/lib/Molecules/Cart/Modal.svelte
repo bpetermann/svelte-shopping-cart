@@ -1,5 +1,11 @@
-<div on:click on:keypress />
-<section>
+<script lang="ts">
+  import { fade, slide } from 'svelte/transition';
+
+  export let time: number;
+</script>
+
+<div on:click on:keypress transition:fade={{ duration: time }} />
+<section in:slide={{ duration: time }} out:fade={{ duration: time }}>
   <slot />
 </section>
 
@@ -10,7 +16,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 10;
   }
 

@@ -22,7 +22,11 @@
     .toFixed(2);
 </script>
 
-<Modal on:click={() => dispatch('toggle')} on:keypress={() => dispatch('toggle')}>
+<Modal
+  time={300}
+  on:click={() => dispatch('toggle')}
+  on:keypress={() => dispatch('toggle')}
+>
   <section>
     {#if !$cart.length}
       <button on:click={() => dispatch('toggle')}> No items (yet!) </button>

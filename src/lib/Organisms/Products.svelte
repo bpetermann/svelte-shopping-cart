@@ -1,6 +1,8 @@
 <script lang="ts">
   import products from '../../store/products-store';
   import searchTerm from '../../store/search-store';
+  import { fade } from 'svelte/transition';
+  import { flip } from 'svelte/animate';
   import cart from '../../store/cart-store';
   import type { Product as ProductType } from '../../types/product.type';
   import Container from '../Atoms/Container.svelte';
@@ -21,7 +23,7 @@
 <Container classname="products">
   <ul>
     {#each searchProducts as { id, name, price, description } (id)}
-      <li>
+      <li transition:fade animate:flip={{ duration: 300 }}>
         <Product on:get={addToCart} {id} {name} {description} {price} />
       </li>
     {/each}
