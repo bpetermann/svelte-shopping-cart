@@ -1,17 +1,13 @@
 <script lang="ts">
+  import Spinner from '../Spinner.svelte';
+
   export let style: string;
 </script>
 
 <button on:click class={style}
   ><p>
     {#if style.includes('loading')}
-      <span>
-        <img
-          class="spinner"
-          src="/images/spinner.gif"
-          alt="Loading..."
-        /></span
-      >
+      <Spinner />
     {:else}
       Add to Cart
     {/if}
@@ -36,12 +32,5 @@
     background-color: #00875a;
     border-color: #00875a;
     color: #fff;
-  }
-
-  .spinner {
-    width: 24px;
-    height: 24px;
-    margin: auto;
-    display: block;
   }
 </style>
