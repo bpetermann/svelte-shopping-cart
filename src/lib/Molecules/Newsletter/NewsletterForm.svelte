@@ -8,6 +8,7 @@
 
   export let value: string;
   export let interestedIn: string;
+
   let interestedOptions: { value: string; text: string; name: string }[] = [
     { value: 'wfashion', text: "Women's Fashion", name: 'interest' },
     { value: 'mfashion', text: "Men's Fashion", name: 'interest' },
@@ -36,7 +37,10 @@
     <img src="/images/mail.png" alt="Mail icon" />
     <Text size="lg bold" color="#fff">Add my Email</Text></Button
   >
-  <Text size="sm">You can unsubscribe at any time free of charge.</Text>
+  <Text size="sm"
+    >You can unsubscribe at any time free of charge. Just a demo, no emails
+    are stored
+  </Text>
 </form>
 
 <style>

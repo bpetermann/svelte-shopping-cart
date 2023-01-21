@@ -8,7 +8,8 @@
   export let success: boolean;
 
   let progress = tweened(0, {
-    duration: 2500,
+    duration: 4000,
+    easing: cubicOut,
   });
 
   const dispatch = createEventDispatcher();
@@ -67,7 +68,7 @@
     align-items: center;
     gap: 8px;
     height: 24px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   img {
