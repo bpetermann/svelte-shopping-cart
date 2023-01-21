@@ -6,7 +6,6 @@
   import SearchBar from '../Molecules/Header/SearchBar.svelte';
 
   let value: string = '';
-
   let showInfo: boolean = true;
   let isOpen: boolean = false;
   let categories: { id: number; name: string }[] = [
@@ -16,7 +15,6 @@
     { id: 4, name: 'Bags' },
     { id: 5, name: 'Shoes' },
   ];
-
   let category: { id: number; name: string } = categories[0];
 
   $: mainCategories = categories.filter((item) => item.id <= 2);

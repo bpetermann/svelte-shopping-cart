@@ -2,17 +2,26 @@
   import Container from '../Atoms/Container.svelte';
   import Heading from '../Atoms/Heading.svelte';
   import Text from '../Atoms/Text.svelte';
+  import Toast from '../Molecules/Newsletter/Toast.svelte';
   import NewsletterForm from '../Molecules/Newsletter/NewsletterForm.svelte';
+  import { validEmail } from '../../helpers/validation';
 
   let email: string = '';
   let interestedIn: string = 'wfashion';
+  let showToast: boolean = false;
+
+  $: success = validEmail(email);
 
   const interestSelect = ({ detail }: { detail: string }) => {
     interestedIn = detail;
   };
 
   const addNewsletter: () => void = () => {
-    console.log(email + interestedIn);
+    showToast = true;
+  };
+
+  const close: () => void = () => {
+    showToast = false;
     (email = ''), (interestedIn = 'wfashion');
   };
 </script>
@@ -27,9 +36,13 @@
     on:change={interestSelect}
     bind:value={email}
     {interestedIn}
-
   />
 </Container>
+{#if showToast}
+  <Toast on:close={close} {success}>
+    {success ? 'Email was added' : 'Something went wrong'}
+  </Toast>
+{/if}
 
 <style>
   div {
