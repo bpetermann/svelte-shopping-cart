@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Product as ProductType } from '../../types/product.type';
   import Product from '../Molecules/Products/Product.svelte';
+  import category from '../../store/category-store';
   import products from '../../store/products-store';
   import searchTerm from '../../store/search-store';
   import Container from '../Atoms/Container.svelte';
@@ -14,7 +15,10 @@
   let errorMsg: string = null;
 
   $: searchProducts = $products.filter((item) => {
-    return item.description.toLowerCase().includes($searchTerm.toLowerCase());
+    return (
+      item.description.toLowerCase().includes($searchTerm.toLowerCase()) &&
+      item.category.includes($category)
+    );
   });
 
   const addToCart = ({ detail }: { detail: string }) => {
@@ -31,7 +35,11 @@
         `https://my-json-server.typicode.com/bpetermann/shopping-cart-jsonserver/storeItems`
       );
       const data = await res.json();
-      const items = data.filter((i: Product) => i.category === 'Shoes');
+      const items = data
+        .filter((i: Product) => i.category === 'Shoes')
+        .map((i: Product) => {
+          return { ...i, category: 'Women, Shoes' };
+        });
       products.set([...items]);
     } catch (error) {
       errorMsg = error.message || 'Something went wrong!';
@@ -45,7 +53,7 @@
     <div>
       <Spinner />
     </div>
-  {:else if !!searchProducts.length}
+  {:else if !loading && !errorMsg}
     <ul>
       {#each searchProducts as { id, name, price, description } (id)}
         <li transition:fade animate:flip={{ duration: 300 }}>

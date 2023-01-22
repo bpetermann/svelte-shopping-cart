@@ -1,13 +1,13 @@
 <script lang="ts">
-  import cart from '../../../store/cart-store';
-  import { createEventDispatcher } from 'svelte';
-  import Container from '../../Atoms/Container.svelte';
-  import Logo from '../../Atoms/Logo.svelte';
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
+  import Container from '../../Atoms/Container.svelte';
+  import category from '../../../store/category-store';
+  import { createEventDispatcher } from 'svelte';
+  import cart from '../../../store/cart-store';
+  import Logo from '../../Atoms/Logo.svelte';
   const dispatch = createEventDispatcher();
 
   export let mainCategories: { id: number; name: string }[];
-  export let category: { id: number; name: string };
 
   $: cartLength = $cart.reduce(function (acc, item) {
     return acc + item.amount;
@@ -18,7 +18,7 @@
   <nav>
     {#each mainCategories as { name, id } (id)}
       <MenuButton
-        classname={category.id === id && 'active'}
+        classname={$category === name && 'active'}
         on:click={() => dispatch('change', id)}>{name}</MenuButton
       >
     {/each}

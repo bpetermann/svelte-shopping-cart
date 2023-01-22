@@ -1,11 +1,11 @@
 <script lang="ts">
+  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
+  import category from '../../../store/category-store';
   import { createEventDispatcher } from 'svelte';
   import { slide } from 'svelte/transition';
-  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   const dispatch = createEventDispatcher();
 
   export let categories: { id: number; name: string }[];
-  export let category: { id: number; name: string };
 </script>
 
 <nav transition:slide>
@@ -13,7 +13,7 @@
     {#each categories as { name, id } (id)}
       <li>
         <MenuButton
-          classname={`mobile ${category.id === id && 'active'}`}
+          classname={`mobile ${$category === name && 'active'}`}
           on:click={() => dispatch('change', id)}>{name}</MenuButton
         >
       </li>
