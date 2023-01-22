@@ -2,10 +2,12 @@
   import Template from '../src/lib/Template/Index.svelte';
 
   let showCart: boolean = false;
+  let innerWidth: number = 0;
 
   const toggleCart: () => void = () => {
     showCart = !showCart;
   };
 </script>
 
-<Template on:toggle={toggleCart} {showCart} />
+<svelte:window bind:innerWidth />
+<Template on:toggle={toggleCart} {showCart} {innerWidth} />

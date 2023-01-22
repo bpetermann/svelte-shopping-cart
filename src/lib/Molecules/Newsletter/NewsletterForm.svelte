@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte';
   import Input from '../../Atoms/Input.svelte';
   import Text from '../../Atoms/Text.svelte';
-  import Button from '../../Atoms/Buttons/Button.svelte';
+  import BaseButton from '../../Atoms/Buttons/BaseButton.svelte';
   import Radio from '../../Atoms/Buttons/Radio.svelte';
   const dispatch = createEventDispatcher();
 
@@ -33,9 +33,9 @@
       {text}</Radio
     >
   {/each}
-  <Button>
+  <BaseButton>
     <img src="/images/mail.png" alt="Mail icon" />
-    <Text size="lg bold" color="#fff">Add my Email</Text></Button
+    <Text size="lg bold" color="#fff">Add my Email</Text></BaseButton
   >
   <Text size="sm"
     >You can unsubscribe at any time free of charge. Just a demo, no emails

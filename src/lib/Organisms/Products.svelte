@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import type { Product as ProductType } from '../../types/product.type';
+  import Product from '../Molecules/Products/Product.svelte';
   import products from '../../store/products-store';
   import searchTerm from '../../store/search-store';
+  import Container from '../Atoms/Container.svelte';
+  import Spinner from '../Atoms/Spinner.svelte';
+  import cart from '../../store/cart-store';
   import { fade } from 'svelte/transition';
   import { flip } from 'svelte/animate';
-  import cart from '../../store/cart-store';
-  import Spinner from '../Atoms/Spinner.svelte';
-  import type { Product as ProductType } from '../../types/product.type';
-  import Container from '../Atoms/Container.svelte';
-  import Product from '../Molecules/Products/Product.svelte';
+  import { onMount } from 'svelte';
 
   let loading: boolean = false;
   let errorMsg: string = null;

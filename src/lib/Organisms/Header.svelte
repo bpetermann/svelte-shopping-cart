@@ -5,9 +5,11 @@
   import NavbarMobile from '../Molecules/Header/NavbarMobile.svelte';
   import SearchBar from '../Molecules/Header/SearchBar.svelte';
 
+  export let innerWidth: number;
   let value: string = '';
   let showInfo: boolean = true;
   let isOpen: boolean = false;
+
   let categories: { id: number; name: string }[] = [
     { id: 1, name: 'Women' },
     { id: 2, name: 'Men' },
@@ -15,10 +17,15 @@
     { id: 4, name: 'Bags' },
     { id: 5, name: 'Shoes' },
   ];
+
   let category: { id: number; name: string } = categories[0];
 
   $: mainCategories = categories.filter((item) => item.id <= 2);
   $: $searchTerm = value;
+  $: if (innerWidth > 768 && $searchTerm) {
+    $searchTerm = '';
+    value = '';
+  }
 
   const closeInfo: () => void = () => {
     showInfo = !showInfo;

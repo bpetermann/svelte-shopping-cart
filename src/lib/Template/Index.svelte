@@ -8,9 +8,10 @@
   import Footer from '../Organisms/Footer.svelte';
 
   export let showCart: boolean;
+  export let innerWidth: number;
 </script>
 
-<Header on:toggle />
+<Header on:toggle {innerWidth} />
 {#if showCart}
   <Cart on:toggle />
 {/if}
