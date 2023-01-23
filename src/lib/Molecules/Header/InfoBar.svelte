@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  import Container from '../../Atoms/Container.svelte';
-  import Text from '../../Atoms/Text.svelte';
   import Close from '../../Atoms/Buttons/Close.svelte';
+  import Container from '../../Atoms/Container.svelte';
+  import { createEventDispatcher } from 'svelte';
+  import Text from '../../Atoms/Text.svelte';
 
   const dispatch = createEventDispatcher();
 </script>

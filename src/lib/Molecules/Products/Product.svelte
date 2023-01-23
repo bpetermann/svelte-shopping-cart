@@ -1,7 +1,7 @@
 <script lang="ts">
+  import AddButton from '../../Atoms/Buttons/AddButton.svelte';
   import { createEventDispatcher } from 'svelte';
   import Text from '../../Atoms/Text.svelte';
-  import AddButton from '../../Atoms/Buttons/AddButton.svelte';
   const dispatch = createEventDispatcher();
 
   export let id: string;

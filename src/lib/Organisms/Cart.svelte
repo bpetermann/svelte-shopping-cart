@@ -1,9 +1,9 @@
 <script lang="ts">
-  import cart from '../../store/cart-store';
-  import { createEventDispatcher } from 'svelte';
-  import type { Product } from '../../types/product.type';
   import CartModalProduct from '../Molecules/Cart/CartModalProduct.svelte';
+  import type { Product } from '../../types/product.type';
   import Modal from '../Molecules/Cart/Modal.svelte';
+  import { createEventDispatcher } from 'svelte';
+  import cart from '../../store/cart-store';
   const dispatch = createEventDispatcher();
 
   const updateProduct = ({

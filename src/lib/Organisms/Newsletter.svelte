@@ -1,10 +1,10 @@
 <script lang="ts">
+  import NewsletterForm from '../Molecules/Newsletter/NewsletterForm.svelte';
+  import Toast from '../Molecules/Newsletter/Toast.svelte';
+  import { validEmail } from '../../helpers/validation';
   import Container from '../Atoms/Container.svelte';
   import Heading from '../Atoms/Heading.svelte';
   import Text from '../Atoms/Text.svelte';
-  import Toast from '../Molecules/Newsletter/Toast.svelte';
-  import NewsletterForm from '../Molecules/Newsletter/NewsletterForm.svelte';
-  import { validEmail } from '../../helpers/validation';
 
   let email: string = '';
   let interestedIn: string = 'wfashion';

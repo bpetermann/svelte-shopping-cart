@@ -2,19 +2,19 @@
   export let classname: string = 'navbar';
 </script>
 
-<div class={classname}>
+<section class={classname}>
   <div>
     <slot />
   </div>
-</div>
+</section>
 
 <style scoped>
-  div {
+  section {
     display: flex;
     justify-content: center;
   }
 
-  div > div:first-child {
+  section > div {
     border-bottom: none;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@
   }
 
   @media (max-width: 768px) {
-    div {
+    section {
       border-bottom: 1px solid #d0d1d3;
     }
   }
@@ -35,7 +35,7 @@
     display: none;
   }
 
-  .searchbar > div:first-child {
+  .searchbar > div {
     padding: 0px;
   }
 
@@ -56,7 +56,7 @@
     background-color: #3e1062;
   }
 
-  .infobar > div:first-child {
+  .infobar > div {
     justify-content: center;
   }
 
@@ -73,13 +73,13 @@
     border-bottom: none;
   }
 
-  .hero > div:first-child {
+  .hero > div {
     align-items: flex-start;
     gap: 32px;
   }
 
   @media (max-width: 768px) {
-    .hero > div:first-child {
+    .hero > div {
       flex-direction: column;
       align-items: center;
       padding: 0px;
@@ -99,7 +99,7 @@
   }
 
   @media (max-width: 768px) {
-    .newsletter > div:first-child {
+    .newsletter > div {
       flex-direction: column;
     }
   }
@@ -109,7 +109,7 @@
     background-color: transparent;
   }
 
-  .faqs > div:first-child {
+  .faqs > div {
     max-width: 960px;
     margin-bottom: 64px;
   }
@@ -120,7 +120,7 @@
       border-bottom: none;
     }
 
-    .faqs > div:first-child {
+    .faqs > div {
       padding: 0px;
     }
   }
@@ -131,12 +131,12 @@
     color: #fff;
   }
 
-  .footer > div:first-child {
+  .footer > div {
     align-items: flex-start;
   }
 
   @media (max-width: 768px) {
-    .footer > div:first-child {
+    .footer > div {
       flex-direction: column;
       align-items: center;
     }

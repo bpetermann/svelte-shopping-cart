@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Container from '../Atoms/Container.svelte';
   import FrequentQuestion from '../Molecules/Faqs/FrequentQuestion.svelte';
+  import Container from '../Atoms/Container.svelte';
 
   let questions: { icon: string; question: string; answer: string }[] = [
     {
