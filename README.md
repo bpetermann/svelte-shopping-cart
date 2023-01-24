@@ -1,7 +1,8 @@
 ## Svelte Shopping Cart
 
-- Just learning Svelte by rebuilding my [shopping-cart](https://github.com/bpetermann/shopping-cart) project with svelte.js
-- [View Live](https://svelte-shopping-cart.vercel.app/)
+- Just learning svelte by rebuilding my [shopping-cart](https://github.com/bpetermann/shopping-cart) project with [sveltejs](https://github.com/sveltejs/svelte)
+- Also implemented atomic design principles
+- [View live on Vercel](https://svelte-shopping-cart.vercel.app/)
 
 ### Thanks
 
