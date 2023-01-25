@@ -12,11 +12,11 @@
   let isOpen: boolean = false;
 
   let categories: { id: number; name: string }[] = [
-    { id: 1, name: 'Women' },
-    { id: 2, name: 'Men' },
-    { id: 3, name: 'Sport' },
-    { id: 4, name: 'Bags' },
-    { id: 5, name: 'Shoes' },
+    { id: 1, name: 'Shoes' },
+    { id: 2, name: 'Bags' },
+    { id: 3, name: 'Women' },
+    { id: 4, name: 'Men' },
+    { id: 5, name: 'Sport' },
   ];
 
   $: mainCategories = categories.filter((item) => item.id <= 2);

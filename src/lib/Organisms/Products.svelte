@@ -35,11 +35,9 @@
         `https://my-json-server.typicode.com/bpetermann/shopping-cart-jsonserver/storeItems`
       );
       const data = await res.json();
-      const items = data
-        .filter((i: Product) => i.category === 'Shoes')
-        .map((i: Product) => {
-          return { ...i, category: 'Women, Shoes' };
-        });
+      const items = data.map((i: Product) => {
+        return { ...i, category: i.category.concat(', Women') };
+      });
       products.set([...items]);
     } catch (error) {
       errorMsg = error.message || 'Something went wrong!';
