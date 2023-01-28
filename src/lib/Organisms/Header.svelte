@@ -7,21 +7,16 @@
   import category from '../../store/category-store';
 
   export let innerWidth: number;
+
   let value: string = '';
   let showInfo: boolean = true;
   let isOpen: boolean = false;
-
   let categories: { id: number; name: string }[] = [
     { id: 1, name: 'Shoes' },
     { id: 2, name: 'Bags' },
     { id: 3, name: 'Women' },
     { id: 4, name: 'Men' },
     { id: 5, name: 'Sport' },
-  ];
-
-  let languages: { id: number; text: string }[] = [
-    { id: 1, text: 'en' },
-    { id: 2, text: 'de' },
   ];
 
   $: mainCategories = categories.filter((item) => item.id <= 2);
@@ -49,7 +44,7 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar on:change={changeCategory} on:toggle {mainCategories} {languages} />
+  <Navbar on:change={changeCategory} on:toggle {mainCategories} />
   <SearchBar on:toggle={toggleMenu} bind:value />
   {#if isOpen}
     <NavbarMobile on:change={changeCategory} {categories} />

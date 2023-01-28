@@ -1,5 +1,7 @@
 <script lang="ts">
+  import LanguageSelect from '../Molecules/LanguageSelect.svelte';
   import Container from '../Atoms/Container.svelte';
+  import i18n from '../../store/i18next-store';
 
   let pageLinks: string[] = [
     'About',
@@ -23,13 +25,13 @@
       <ul>
         {#each pageLinks as pageLink, index (index)}
           <li>
-            {pageLink}
+            {$i18n.t(`${pageLink}`)}
           </li>
         {/each}
       </ul>
     </nav>
     <nav class="social-media">
-      Find more inspiration:
+      {$i18n.t('Find more inspiration:')}
       <ul>
         {#each socialMediaLinks as socialMediaLink, index (index)}
           <li>
@@ -41,6 +43,9 @@
         {/each}
       </ul>
     </nav>
+    <div>
+      <LanguageSelect />
+    </div>
   </Container>
 </footer>
 
@@ -79,7 +84,11 @@
     display: flex;
     gap: 8px;
     padding: 0px;
-    padding-bottom: 24px;
+  }
+
+  div {
+    display: none;
+    padding-bottom: 16px;
   }
 
   .social-media li {
@@ -96,6 +105,9 @@
   @media (max-width: 768px) {
     .social-media {
       text-align: center;
+    }
+    div {
+      display: block;
     }
   }
 </style>

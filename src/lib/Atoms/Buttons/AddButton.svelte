@@ -1,4 +1,5 @@
 <script lang="ts">
+    import i18n from '../../../store/i18next-store';
   import Spinner from '../Spinner.svelte';
 
   export let style: string;
@@ -9,7 +10,7 @@
     {#if style.includes('loading')}
       <Spinner />
     {:else}
-      Add to Cart
+      {$i18n.t('Add to Cart')}
     {/if}
   </p></button
 >

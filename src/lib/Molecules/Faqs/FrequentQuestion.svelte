@@ -1,4 +1,5 @@
 <script lang="ts">
+  import i18n from '../../../store/i18next-store';
   import Text from '../../Atoms/Text.svelte';
   import { slide } from 'svelte/transition';
 
@@ -14,7 +15,7 @@
   <div>
     <div class="question">
       <img src="/images/{icon}.png" alt="{icon} icon" />
-      <Text size="lg">{question}</Text>
+      <Text size="lg">{$i18n.t(`${question}`)}</Text>
     </div>
     <button on:click={toggleOpen}>
       <img src="/images/expand.png" alt="Arrow icon" /></button
@@ -22,7 +23,7 @@
   </div>
   {#if open}
     <div transition:slide>
-      <Text size="md">{answer}</Text>
+      <Text size="md">{$i18n.t(`${answer}`)}</Text>
     </div>
   {/if}
 </li>

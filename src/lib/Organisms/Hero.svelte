@@ -12,7 +12,7 @@
       {$i18n.t('The 3 Pairs of Shoes You Need for this Winter')}
     </Text>
     <button
-      ><Text size="lg bold" color="#fff">Shop now</Text>
+      ><Text size="lg bold" color="#fff"> {$i18n.t('Shop now')}</Text>
       <img src="/images/arrow.png" alt="Arrow right" />
     </button>
   </div>

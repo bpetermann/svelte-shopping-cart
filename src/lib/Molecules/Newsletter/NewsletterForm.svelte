@@ -1,6 +1,7 @@
 <script lang="ts">
   import BaseButton from '../../Atoms/Buttons/BaseButton.svelte';
   import Radio from '../../Atoms/Buttons/Radio.svelte';
+  import i18n from '../../../store/i18next-store';
   import { createEventDispatcher } from 'svelte';
   import Input from '../../Atoms/Input.svelte';
   import Text from '../../Atoms/Text.svelte';
@@ -20,8 +21,8 @@
 </script>
 
 <form on:submit|preventDefault={() => dispatch('subscribe')}>
-  <Input classname={'primary'} marker={'Your Email'} bind:value />
-  <Text size="lg bold">I'm mostly interested in</Text>
+  <Input classname={'primary'} marker={$i18n.t('Your Email')} bind:value />
+  <Text size="lg bold">{$i18n.t('I am mostly interested in')}</Text>
 
   {#each interestedOptions as { value, text, name } (value)}
     <Radio
@@ -30,16 +31,18 @@
       {name}
       {value}
     >
-      {text}</Radio
+      {$i18n.t(`${text}`)}</Radio
     >
   {/each}
   <BaseButton>
     <img src="/images/mail.png" alt="Mail icon" />
-    <Text size="lg bold" color="#fff">Add my Email</Text></BaseButton
+    <Text size="lg bold" color="#fff">{$i18n.t('Add my Email')}</Text
+    ></BaseButton
   >
-  <Text size="sm"
-    >You can unsubscribe at any time free of charge. Just a demo, no emails are
-    stored
+  <Text size="sm">
+    {$i18n.t(
+      'You can unsubscribe at any time free of charge. Just a demo, no emails are stored'
+    )}
   </Text>
 </form>
 

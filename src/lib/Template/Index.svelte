@@ -11,7 +11,7 @@
   export let innerWidth: number;
 </script>
 
-<Header on:toggle {innerWidth} />
+<Header on:toggle {innerWidth}  />
 {#if showCart}
   <Cart on:toggle />
 {/if}

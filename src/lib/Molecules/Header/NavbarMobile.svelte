@@ -1,6 +1,7 @@
 <script lang="ts">
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   import category from '../../../store/category-store';
+  import i18n from '../../../store/i18next-store';
   import { createEventDispatcher } from 'svelte';
   import { slide } from 'svelte/transition';
   const dispatch = createEventDispatcher();
@@ -14,7 +15,7 @@
       <li>
         <MenuButton
           classname={`mobile ${$category === name && 'active'}`}
-          on:click={() => dispatch('change', id)}>{name}</MenuButton
+          on:click={() => dispatch('change', id)}>{$i18n.t(`${name}`)}</MenuButton
         >
       </li>
     {/each}

@@ -3,6 +3,7 @@
   import Toast from '../Molecules/Newsletter/Toast.svelte';
   import { validEmail } from '../../helpers/validation';
   import Container from '../Atoms/Container.svelte';
+  import i18n from '../../store/i18next-store';
   import Heading from '../Atoms/Heading.svelte';
   import Text from '../Atoms/Text.svelte';
 
@@ -28,8 +29,8 @@
 
 <Container classname={'newsletter'}>
   <div>
-    <Heading tag="h3" color="#000">JOIN OUR NEWSLETTER!</Heading>
-    <Text size="lg">Keep up to date</Text>
+    <Heading tag="h3" color="#000">{$i18n.t('JOIN OUR NEWSLETTER!')}</Heading>
+    <Text size="lg">{$i18n.t('Keep up to date')}</Text>
   </div>
   <NewsletterForm
     on:subscribe={addNewsletter}
@@ -40,7 +41,7 @@
 </Container>
 {#if showToast}
   <Toast on:close={close} {success}>
-    {success ? 'Email was added' : 'Something went wrong'}
+    {$i18n.t(`${success ? 'Email was added' : 'Invalid input'}`)}
   </Toast>
 {/if}
 
