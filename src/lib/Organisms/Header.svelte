@@ -19,6 +19,11 @@
     { id: 5, name: 'Sport' },
   ];
 
+  let languages: { id: number; text: string }[] = [
+    { id: 1, text: 'en' },
+    { id: 2, text: 'de' },
+  ];
+
   $: mainCategories = categories.filter((item) => item.id <= 2);
   $: $searchTerm = value;
   $: if (innerWidth > 768 && $searchTerm) {
@@ -44,7 +49,7 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar on:change={changeCategory} on:toggle {mainCategories} />
+  <Navbar on:change={changeCategory} on:toggle {mainCategories} {languages} />
   <SearchBar on:toggle={toggleMenu} bind:value />
   {#if isOpen}
     <NavbarMobile on:change={changeCategory} {categories} />

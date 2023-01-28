@@ -1,5 +1,6 @@
 <script lang="ts">
   import Container from '../Atoms/Container.svelte';
+  import i18n from '../../store/i18next-store';
   import Heading from '../Atoms/Heading.svelte';
   import Text from '../Atoms/Text.svelte';
 </script>
@@ -7,9 +8,9 @@
 <Container classname="hero">
   <div class="info">
     <Heading>DROP WINTER 2022</Heading>
-    <Text size="lg" color="#fff"
-      >The 3 Pairs of Shoes You Need for this Winter</Text
-    >
+    <Text size="lg" color="#fff">
+      {$i18n.t('The 3 Pairs of Shoes You Need for this Winter')}
+    </Text>
     <button
       ><Text size="lg bold" color="#fff">Shop now</Text>
       <img src="/images/arrow.png" alt="Arrow right" />

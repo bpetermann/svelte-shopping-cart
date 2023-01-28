@@ -2,13 +2,18 @@
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   import Container from '../../Atoms/Container.svelte';
   import category from '../../../store/category-store';
+  import i18n from '../../../store/i18next-store';
   import { createEventDispatcher } from 'svelte';
   import cart from '../../../store/cart-store';
   import Logo from '../../Atoms/Logo.svelte';
   const dispatch = createEventDispatcher();
 
   export let mainCategories: { id: number; name: string }[];
+  export let languages: { id: number; text: string }[];
 
+  let selected: string;
+
+  $: $i18n.changeLanguage(selected);
   $: cartLength = $cart.reduce(function (acc, item) {
     return acc + item.amount;
   }, 0);
@@ -22,6 +27,13 @@
         on:click={() => dispatch('change', id)}>{name}</MenuButton
       >
     {/each}
+    <select bind:value={selected}>
+      {#each languages as language}
+        <option value={language.text}>
+          {language.text}
+        </option>
+      {/each}
+    </select>
   </nav>
   <Logo />
   <div>
@@ -42,6 +54,11 @@
     min-width: 225px;
     height: 22px;
     text-align: end;
+  }
+
+  select{
+    background-color: #fff;
+    border: 1px solid #d0d1d3;
   }
 
   button {
