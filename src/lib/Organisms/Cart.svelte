@@ -3,6 +3,7 @@
   import type { Product } from '../../types/product.type';
   import Modal from '../Molecules/Cart/Modal.svelte';
   import { createEventDispatcher } from 'svelte';
+  import i18n from '../../store/i18next-store';
   import cart from '../../store/cart-store';
   const dispatch = createEventDispatcher();
 
@@ -29,7 +30,9 @@
 >
   <section>
     {#if !$cart.length}
-      <button on:click={() => dispatch('toggle')}> No items (yet!) </button>
+      <button on:click={() => dispatch('toggle')}
+        >{$i18n.t('No items')}</button
+      >
     {:else}
       <ul>
         {#each $cart as { name, amount, price, id } (id)}
@@ -43,10 +46,10 @@
         {/each}
       </ul>
       <div>
-        <span>Total Amount</span>
+        <span>{$i18n.t('Total Amount')}</span>
         <span>{totalPrice} $</span>
       </div>
-      <button>Order</button>
+      <button>{$i18n.t('Order')}</button>
     {/if}
   </section></Modal
 >

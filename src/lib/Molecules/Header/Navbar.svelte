@@ -1,6 +1,6 @@
 <script lang="ts">
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
-  import LanguageSelect from '../LanguageSelect.svelte';
+  import LanguageSelect from '../../Atoms/LanguageSelect.svelte';
   import Container from '../../Atoms/Container.svelte';
   import category from '../../../store/category-store';
   import i18n from '../../../store/i18next-store';

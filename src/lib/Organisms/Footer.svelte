@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LanguageSelect from '../Molecules/LanguageSelect.svelte';
+  import LanguageSelect from '../Atoms/LanguageSelect.svelte';
   import Container from '../Atoms/Container.svelte';
   import i18n from '../../store/i18next-store';
 

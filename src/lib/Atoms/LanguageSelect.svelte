@@ -15,7 +15,10 @@
 
 <select bind:value={selected} on:change={changeLanguage}>
   {#each languages as language}
-    <option value={language.text}>
+    <option
+      value={language.text}
+      selected={$i18n.resolvedLanguage === language.text}
+    >
       {language.text}
     </option>
   {/each}

@@ -1,10 +1,17 @@
 <script lang="ts">
+  import i18n from '../../store/i18next-store';
+
   export let value: String = '';
   export let classname: string;
   export let marker: string = 'Search';
 </script>
 
-<input type="text" class={classname} bind:value placeholder={marker} />
+<input
+  type="text"
+  class={classname}
+  bind:value
+  placeholder={$i18n.t(`${marker}`)}
+/>
 
 <style>
   input {
