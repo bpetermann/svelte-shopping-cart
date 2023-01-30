@@ -5,7 +5,6 @@
     { id: 1, text: 'en' },
     { id: 2, text: 'de' },
   ];
-
   let selected: string;
 
   const changeLanguage: () => void = () => {
@@ -14,12 +13,9 @@
 </script>
 
 <select bind:value={selected} on:change={changeLanguage}>
-  {#each languages as language}
-    <option
-      value={language.text}
-      selected={$i18n.resolvedLanguage === language.text}
-    >
-      {language.text}
+  {#each languages as { id, text } (id)}
+    <option value={text} selected={$i18n.resolvedLanguage === text}>
+      {text}
     </option>
   {/each}
 </select>

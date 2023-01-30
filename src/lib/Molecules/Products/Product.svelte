@@ -32,7 +32,7 @@
     />
   </div>
   <Text size="lg">{description}</Text>
-  <Text size="lg">{price}$</Text>
+  <Text size="lg">{price} $</Text>
   <AddButton on:click={addProduct} {style} />
 </div>
 
