@@ -15,7 +15,7 @@
 <select bind:value={selected} on:change={changeLanguage}>
   {#each languages as { id, text } (id)}
     <option value={text} selected={$i18n.resolvedLanguage === text}>
-      {text}
+      {$i18n.t(`${text}`)}
     </option>
   {/each}
 </select>
