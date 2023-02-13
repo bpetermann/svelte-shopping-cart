@@ -10,7 +10,7 @@
 <style>
   p {
     color: var(--color);
-    font-size: 400;
+    font-weight: 400;
   }
 
   .sm {
