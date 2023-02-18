@@ -7,13 +7,17 @@
   import Faqs from '../Organisms/Faqs.svelte';
   import Footer from '../Organisms/Footer.svelte';
 
-  export let showCart: boolean;
   export let innerWidth: number;
+  let showCart: boolean = false;
+
+  const toggleCart: () => void = () => {
+    showCart = !showCart;
+  };
 </script>
 
-<Header on:toggle {innerWidth}  />
+<Header on:toggle={toggleCart} {innerWidth} />
 {#if showCart}
-  <Cart on:toggle />
+  <Cart on:toggle={toggleCart} />
 {/if}
 <Hero />
 <Products />
