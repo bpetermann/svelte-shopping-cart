@@ -2,6 +2,7 @@
 
 - Just learning svelte by rebuilding my [shopping-cart](https://github.com/bpetermann/shopping-cart) project with [sveltejs](https://github.com/sveltejs/svelte)
 - Also implemented atomic design principles
+- Bilingualism via svelte i18n
 - [View live on Vercel](https://svelte-shopping-cart.vercel.app/)
 
 ### Thanks
