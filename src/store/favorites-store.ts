@@ -7,10 +7,11 @@ const customFavoritesStore = {
   subscribe: favorites.subscribe,
   toggle: (product: Product) => {
     favorites.update((items: Product[]) => {
-      const existingFavoritesItemIndex = items.findIndex(
+      const existingFavoriteItem = items.find(
         (item) => item.name === product.name
       );
-      return !!existingFavoritesItemIndex
+      console.log(existingFavoriteItem)
+      return !existingFavoriteItem
         ? [...items, product]
         : items.filter((item) => item.name !== product.name);
     });

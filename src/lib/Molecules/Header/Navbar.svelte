@@ -36,12 +36,16 @@
       disabled={!favoritesLength}
     >
       <img src="/images/favorite.png" alt="favorite" />
-      <span>{favoritesLength}</span>
+      {#if favoritesLength}
+        <span>{favoritesLength}</span>
+      {/if}
     </button>
     <button on:click={() => dispatch('toggle')}>
       <img src="/images/cart.png" alt="cart" />
-      <span>{cartLength}</span></button
-    >
+      {#if cartLength}
+        <span>{cartLength}</span>
+      {/if}
+    </button>
   </div>
 </Container>
 
