@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Close from '../../Atoms/Buttons/Close.svelte';
-  import Container from '../../Atoms/Container.svelte';
-  import i18n from '../../../store/i18next-store';
+  import Close from '@/lib/Atoms/Buttons/Close.svelte';
+  import Container from '@/lib/Atoms/Container.svelte';
   import { createEventDispatcher } from 'svelte';
-  import Text from '../../Atoms/Text.svelte';
+  import Text from '@/lib/Atoms/Text.svelte';
+  import i18n from '@/store/i18next-store';
 
   const dispatch = createEventDispatcher();
 </script>

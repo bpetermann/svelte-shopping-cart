@@ -1,8 +1,8 @@
 <script lang="ts">
-  import AddButton from '../../Atoms/Buttons/AddButton.svelte';
-  import favorites from '../../../store/favorites-store';
+  import AddButton from '@/lib/Atoms/Buttons/AddButton.svelte';
+  import favorites from '@/store/favorites-store';
   import { createEventDispatcher } from 'svelte';
-  import Text from '../../Atoms/Text.svelte';
+  import Text from '@/lib/Atoms/Text.svelte';
   const dispatch = createEventDispatcher();
 
   export let id: string;

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import LanguageSelect from '../Atoms/LanguageSelect.svelte';
-  import Container from '../Atoms/Container.svelte';
-  import i18n from '../../store/i18next-store';
+  import LanguageSelect from '@/lib/Atoms/LanguageSelect.svelte';
+  import Container from '@/lib/Atoms/Container.svelte';
+  import i18n from '@/store/i18next-store';
 
   let pageLinks: string[] = [
     'About',

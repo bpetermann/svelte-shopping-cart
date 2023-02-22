@@ -1,9 +1,9 @@
 <script lang="ts">
-  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
-  import category from '../../../store/category-store';
-  import i18n from '../../../store/i18next-store';
+  import MenuButton from '@/lib/Atoms/Buttons/MenuButton.svelte';
   import { createEventDispatcher } from 'svelte';
+  import category from '@/store/category-store';
   import { slide } from 'svelte/transition';
+  import i18n from '@/store/i18next-store';
   const dispatch = createEventDispatcher();
 
   export let categories: { id: number; name: string }[];

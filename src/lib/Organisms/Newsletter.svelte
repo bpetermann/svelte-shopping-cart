@@ -1,11 +1,11 @@
 <script lang="ts">
-  import NewsletterForm from '../Molecules/Newsletter/NewsletterForm.svelte';
-  import Toast from '../Molecules/Newsletter/Toast.svelte';
-  import { validEmail } from '../../helpers/validation';
-  import Container from '../Atoms/Container.svelte';
-  import i18n from '../../store/i18next-store';
-  import Heading from '../Atoms/Heading.svelte';
-  import Text from '../Atoms/Text.svelte';
+  import NewsletterForm from '@/lib/Molecules/Newsletter/NewsletterForm.svelte';
+  import Toast from '@/lib/Molecules/Newsletter/Toast.svelte';
+  import Container from '@/lib/Atoms/Container.svelte';
+  import { validEmail } from '@/helpers/validation';
+  import Heading from '@/lib/Atoms/Heading.svelte';
+  import Text from '@/lib/Atoms/Text.svelte';
+  import i18n from '@/store/i18next-store';
 
   let email: string = '';
   let interestedIn: string = 'wfashion';

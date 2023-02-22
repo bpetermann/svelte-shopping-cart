@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Header from '../Organisms/Header.svelte';
-  import Cart from '../Organisms/Cart.svelte';
-  import Favorites from '../Organisms/Favorites.svelte';
-  import Hero from '../Organisms/Hero.svelte';
-  import Products from '../Organisms/Products.svelte';
-  import Newsletter from '../Organisms/Newsletter.svelte';
-  import Faqs from '../Organisms/Faqs.svelte';
-  import Footer from '../Organisms/Footer.svelte';
+  import Header from '@/lib/Organisms/Header.svelte';
+  import Cart from '@/lib/Organisms/Cart.svelte';
+  import Favorites from '@/lib/Organisms/Favorites.svelte';
+  import Hero from '@/lib/Organisms/Hero.svelte';
+  import Products from '@/lib/Organisms/Products.svelte';
+  import Newsletter from '@/lib/Organisms/Newsletter.svelte';
+  import Faqs from '@/lib/Organisms/Faqs.svelte';
+  import Footer from '@/lib/Organisms/Footer.svelte';
 
   export let innerWidth: number;
   let showCart: boolean = false;

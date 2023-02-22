@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Template from '../src/lib/Template/Index.svelte';
+  import Template from '@/lib/Template/Index.svelte';
 
   let innerWidth: number = 0;
 </script>

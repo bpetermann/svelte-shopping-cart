@@ -1,5 +1,5 @@
 <script lang="ts">
-  import i18n from '../../store/i18next-store';
+  import i18n from '@/store/i18next-store';
 
   export let value: String = '';
   export let classname: string;

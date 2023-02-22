@@ -1,10 +1,10 @@
 <script lang="ts">
-  import CartModalProduct from '../Molecules/Cart/CartModalProduct.svelte';
+  import CartModalProduct from '@/lib/Molecules/Cart/CartModalProduct.svelte';
   import type { Product } from '../../types/product.type';
+  import Modal from '@/lib/Molecules/Modal.svelte';
   import { createEventDispatcher } from 'svelte';
-  import Modal from '../Molecules/Modal.svelte';
-  import i18n from '../../store/i18next-store';
-  import cart from '../../store/cart-store';
+  import i18n from '@/store/i18next-store';
+  import cart from '@/store/cart-store';
   const dispatch = createEventDispatcher();
 
   const updateProduct = ({

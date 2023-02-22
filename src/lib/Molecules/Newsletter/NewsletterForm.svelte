@@ -1,10 +1,10 @@
 <script lang="ts">
-  import BaseButton from '../../Atoms/Buttons/BaseButton.svelte';
-  import Radio from '../../Atoms/Buttons/Radio.svelte';
-  import i18n from '../../../store/i18next-store';
+  import BaseButton from '@/lib/Atoms/Buttons/BaseButton.svelte';
+  import Radio from '@/lib/Atoms/Buttons/Radio.svelte';
   import { createEventDispatcher } from 'svelte';
-  import Input from '../../Atoms/Input.svelte';
-  import Text from '../../Atoms/Text.svelte';
+  import Input from '@/lib/Atoms/Input.svelte';
+  import Text from '@/lib/Atoms/Text.svelte';
+  import i18n from '@/store/i18next-store';
   const dispatch = createEventDispatcher();
 
   export let value: string;

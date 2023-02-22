@@ -1,7 +1,7 @@
 <script lang="ts">
-  import i18n from '../../../store/i18next-store';
-  import Text from '../../Atoms/Text.svelte';
+  import Text from '@/lib/Atoms/Text.svelte';
   import { slide } from 'svelte/transition';
+  import i18n from '@/store/i18next-store';
 
   export let icon: string;
   export let question: string;

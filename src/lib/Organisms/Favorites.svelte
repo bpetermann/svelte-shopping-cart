@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { Product as ProductType } from '../../types/product.type';
-  import Product from '../Molecules/Products/Product.svelte';
-  import favorites from '../../store/favorites-store';
-  import Modal from '../Molecules/Modal.svelte';
-  import products from '../../store/products-store';
+  import Product from '@/lib/Molecules/Products/Product.svelte';
+  import Modal from '@/lib/Molecules/Modal.svelte';
+  import favorites from '@/store/favorites-store';
   import { createEventDispatcher } from 'svelte';
-  import cart from '../../store/cart-store';
+  import products from '@/store/products-store';
+  import cart from '@/store/cart-store';
   const dispatch = createEventDispatcher();
 
   const addToCart = ({ detail }: { detail: string }) => {

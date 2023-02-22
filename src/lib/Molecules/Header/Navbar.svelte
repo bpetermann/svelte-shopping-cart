@@ -1,13 +1,13 @@
 <script lang="ts">
-  import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
-  import LanguageSelect from '../../Atoms/LanguageSelect.svelte';
-  import favorites from '../../../store/favorites-store';
-  import Container from '../../Atoms/Container.svelte';
-  import category from '../../../store/category-store';
-  import i18n from '../../../store/i18next-store';
+  import MenuButton from '@/lib/Atoms/Buttons/MenuButton.svelte';
+  import LanguageSelect from '@/lib/Atoms/LanguageSelect.svelte';
+  import Container from '@/lib/Atoms/Container.svelte';
+  import favorites from '@/store/favorites-store';
   import { createEventDispatcher } from 'svelte';
-  import cart from '../../../store/cart-store';
-  import Logo from '../../Atoms/Logo.svelte';
+  import category from '@/store/category-store';
+  import Logo from '@/lib/Atoms/Logo.svelte';
+  import i18n from '@/store/i18next-store';
+  import cart from '@/store/cart-store';
   const dispatch = createEventDispatcher();
 
   export let mainCategories: { id: number; name: string }[];

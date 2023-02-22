@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FrequentQuestion from '../Molecules/Faqs/FrequentQuestion.svelte';
+  import FrequentQuestion from '@/lib/Molecules/Faqs/FrequentQuestion.svelte';
   import Container from '../Atoms/Container.svelte';
 
   let questions: { icon: string; question: string; answer: string }[] = [

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import NavbarMobile from '../Molecules/Header/NavbarMobile.svelte';
-  import SearchBar from '../Molecules/Header/SearchBar.svelte';
-  import InfoBar from '../Molecules/Header/InfoBar.svelte';
-  import Navbar from '../Molecules/Header/Navbar.svelte';
-  import searchTerm from '../../store/search-store';
-  import category from '../../store/category-store';
+  import NavbarMobile from '@/lib/Molecules/Header/NavbarMobile.svelte';
+  import SearchBar from '@/lib/Molecules/Header/SearchBar.svelte';
+  import InfoBar from '@/lib/Molecules/Header/InfoBar.svelte';
+  import Navbar from '@/lib/Molecules/Header/Navbar.svelte';
+  import searchTerm from '@/store/search-store';
+  import category from '@/store/category-store';
 
   export let innerWidth: number;
 
