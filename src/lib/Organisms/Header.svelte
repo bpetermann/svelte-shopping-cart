@@ -44,7 +44,12 @@
   {#if showInfo}
     <InfoBar on:close={closeInfo} />
   {/if}
-  <Navbar on:change={changeCategory} on:toggle {mainCategories} />
+  <Navbar
+    on:change={changeCategory}
+    on:toggle
+    on:showFavorites
+    {mainCategories}
+  />
   <SearchBar on:toggle={toggleMenu} bind:value />
   {#if isOpen}
     <NavbarMobile on:change={changeCategory} {categories} />

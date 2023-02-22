@@ -1,8 +1,8 @@
 <script lang="ts">
   import CartModalProduct from '../Molecules/Cart/CartModalProduct.svelte';
   import type { Product } from '../../types/product.type';
-  import Modal from '../Molecules/Cart/Modal.svelte';
   import { createEventDispatcher } from 'svelte';
+  import Modal from '../Molecules/Modal.svelte';
   import i18n from '../../store/i18next-store';
   import cart from '../../store/cart-store';
   const dispatch = createEventDispatcher();
@@ -27,12 +27,11 @@
   time={300}
   on:click={() => dispatch('toggle')}
   on:keypress={() => dispatch('toggle')}
+  classname="cart"
 >
   <section>
     {#if !$cart.length}
-      <button on:click={() => dispatch('toggle')}
-        >{$i18n.t('No items')}</button
-      >
+      <button on:click={() => dispatch('toggle')}>{$i18n.t('No items')}</button>
     {:else}
       <ul>
         {#each $cart as { name, amount, price, id } (id)}

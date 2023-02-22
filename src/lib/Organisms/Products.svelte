@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Product as ProductType } from '../../types/product.type';
   import Product from '../Molecules/Products/Product.svelte';
+  import favorites from '../../store/favorites-store';
   import category from '../../store/category-store';
   import products from '../../store/products-store';
   import searchTerm from '../../store/search-store';
@@ -26,6 +27,13 @@
       (product) => product.id === detail
     );
     cart.add(product);
+  };
+
+  const toggleFavorites = ({ detail }: { detail: string }) => {
+    let product: ProductType = $products.find(
+      (product) => product.id === detail
+    );
+    favorites.toggle(product);
   };
 
   onMount(async () => {
@@ -55,7 +63,14 @@
     <ul>
       {#each searchProducts as { id, name, price, description } (id)}
         <li transition:fade animate:flip={{ duration: 300 }}>
-          <Product on:get={addToCart} {id} {name} {description} {price} />
+          <Product
+            on:favorite={toggleFavorites}
+            on:get={addToCart}
+            {description}
+            {price}
+            {name}
+            {id}
+          />
         </li>
       {/each}
     </ul>

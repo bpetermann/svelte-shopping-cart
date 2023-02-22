@@ -1,5 +1,6 @@
 <script lang="ts">
   import AddButton from '../../Atoms/Buttons/AddButton.svelte';
+  import favorites from '../../../store/favorites-store';
   import { createEventDispatcher } from 'svelte';
   import Text from '../../Atoms/Text.svelte';
   const dispatch = createEventDispatcher();
@@ -11,6 +12,8 @@
 
   let style: string = '';
 
+  $: isFavorite = $favorites.find((item) => item.id === id);
+
   const addProduct = () => {
     style = 'loading';
     setTimeout(() => {
@@ -18,6 +21,7 @@
       setTimeout(() => {
         style = '';
         dispatch('get', id);
+        isFavorite && dispatch('favorite', id);
       }, 750);
     }, 500);
   };
@@ -30,6 +34,13 @@
       alt={description}
       title={description}
     />
+    <button on:click={() => dispatch('favorite', id)}>
+      <img
+        src="/images/favorite.png"
+        alt="favorite"
+        class:favorite={isFavorite}
+      />
+    </button>
   </div>
   <Text size="lg">{description}</Text>
   <Text size="lg">{price} $</Text>
@@ -49,11 +60,31 @@
   .image {
     max-height: 224px;
     max-width: 160px;
+    position: relative;
   }
 
   .image > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+    height: 22px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+
+  button > img {
+    height: 100%;
+    width: auto;
+  }
+
+  .favorite {
+    filter: invert(40%) sepia(96%) saturate(1660%) hue-rotate(1deg)
+      brightness(103%) contrast(105%);
   }
 </style>

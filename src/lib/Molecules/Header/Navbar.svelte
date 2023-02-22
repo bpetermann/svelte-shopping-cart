@@ -1,6 +1,7 @@
 <script lang="ts">
   import MenuButton from '../../Atoms/Buttons/MenuButton.svelte';
   import LanguageSelect from '../../Atoms/LanguageSelect.svelte';
+  import favorites from '../../../store/favorites-store';
   import Container from '../../Atoms/Container.svelte';
   import category from '../../../store/category-store';
   import i18n from '../../../store/i18next-store';
@@ -14,6 +15,8 @@
   $: cartLength = $cart.reduce(function (acc, item) {
     return acc + item.amount;
   }, 0);
+
+  $: favoritesLength = $favorites.length;
 </script>
 
 <Container>
@@ -28,6 +31,13 @@
   </nav>
   <Logo />
   <div>
+    <button
+      on:click={() => dispatch('showFavorites')}
+      disabled={!favoritesLength}
+    >
+      <img src="/images/favorite.png" alt="favorite" />
+      <span>{favoritesLength}</span>
+    </button>
     <button on:click={() => dispatch('toggle')}>
       <img src="/images/cart.png" alt="cart" />
       <span>{cartLength}</span></button
@@ -44,7 +54,8 @@
   div {
     min-width: 225px;
     height: 22px;
-    text-align: end;
+    display: flex;
+    justify-content: flex-end;
   }
 
   button {
