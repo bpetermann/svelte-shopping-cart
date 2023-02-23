@@ -50,7 +50,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 16px;
+    gap: 16px;
   }
+
 
   @media (max-width: 768px) {
     div {

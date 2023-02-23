@@ -20,7 +20,8 @@
   });
 </script>
 
-<section
+<div
+  class="toast"
   in:fly={{ duration: 400, easing: backInOut, x: 300, y: 0 }}
   out:fade={{ duration: 200 }}
   class:success
@@ -35,10 +36,10 @@
   <div>
     <div class="inner" style="width: {$progress * 100}%" />
   </div>
-</section>
+</div>
 
 <style>
-  section {
+  .toast {
     position: fixed;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -57,13 +58,13 @@
     background-color: #00875a;
   }
 
-  section > div:first-of-type {
+  .toast > div:first-of-type {
     display: flex;
     justify-content: flex-end;
     padding: 8px;
   }
 
-  section > div:nth-child(2) {
+  .toast > div:nth-child(2) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,12 +80,12 @@
   }
 
   .inner,
-  section > div:last-child {
+  .toast > div:last-child {
     height: 16px;
     border-radius: 0px 5px 5px 5px;
   }
 
-  section > div:last-child {
+  .toast > div:last-child {
     width: 100%;
     background-color: transparent;
     margin-bottom: -1px;
@@ -96,14 +97,14 @@
   }
 
   @media (max-width: 768px) {
-    section {
+    .toast {
       left: 10%;
       width: 80%;
     }
   }
 
   @media (max-width: 384px) {
-    section {
+    .toast {
       left: 5%;
       width: 90%;
     }

@@ -4,6 +4,7 @@
   import Close from '@/lib/Atoms/Buttons/Close.svelte';
   import Modal from '@/lib/Molecules/Modal.svelte';
   import { createEventDispatcher } from 'svelte';
+  import Heading from '../Atoms/Heading.svelte';
   import i18n from '@/store/i18next-store';
   import cart from '@/store/cart-store';
   const dispatch = createEventDispatcher();
@@ -22,6 +23,10 @@
       return acc + prod.amount * prod.price;
     }, 0)
     .toFixed(2);
+
+  $: cartLength = $cart.reduce(function (acc, item) {
+    return acc + item.amount;
+  }, 0);
 </script>
 
 <Modal
@@ -30,13 +35,16 @@
   on:keypress={() => dispatch('toggle')}
   classname="cart"
 >
-  <section>
+  <div class="cart">
     {#if !$cart.length}
       <button on:click={() => dispatch('toggle')}>{$i18n.t('No items')}</button>
     {:else}
       <div class="close">
         <Close on:click={() => dispatch('toggle')} classname="dark" />
       </div>
+      <Heading tag="h3" color="#000"
+        >{$i18n.t('Cart')}{` (${cartLength})`}
+      </Heading>
       <ul>
         {#each $cart as { name, amount, price, id } (id)}
           <CartModalProduct
@@ -54,11 +62,11 @@
       </div>
       <button>{$i18n.t('Order')}</button>
     {/if}
-  </section></Modal
+  </div></Modal
 >
 
 <style>
-  section {
+  .cart {
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -78,7 +86,7 @@
     align-self: flex-end;
   }
 
-  div {
+  .cart > div:last-of-type {
     width: 100%;
     max-width: 300px;
     display: flex;
@@ -98,7 +106,7 @@
     cursor: pointer;
   }
 
-  section > button:first-child {
+  .cart > button:first-child {
     margin-top: 0px;
     max-width: unset;
   }

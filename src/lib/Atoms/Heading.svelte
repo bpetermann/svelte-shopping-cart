@@ -26,6 +26,7 @@
   h3 {
     color: var(--color);
     font-size: 22px;
+    margin: 0;
   }
 
   @media (max-width: 768px) {

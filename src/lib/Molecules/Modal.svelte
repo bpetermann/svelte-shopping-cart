@@ -5,17 +5,22 @@
   export let classname: string;
 </script>
 
-<div on:click on:keypress transition:fade={{ duration: time }} />
-<section
+<div
+  on:click
+  on:keypress
+  transition:fade={{ duration: time }}
+  class="backdrop"
+/>
+<div
   in:slide={{ duration: time }}
   out:fade={{ duration: time }}
   class={classname}
 >
   <slot />
-</section>
+</div>
 
 <style>
-  div {
+  .backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,7 +30,7 @@
     z-index: 10;
   }
 
-  section {
+  div {
     position: fixed;
     text-align: center;
     left: 30%;
@@ -47,7 +52,7 @@
   }
 
   @media (max-width: 768px) {
-    section {
+    div {
       left: 5%;
       width: 90%;
     }

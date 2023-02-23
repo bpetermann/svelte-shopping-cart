@@ -2,19 +2,19 @@
   export let classname: string = 'navbar';
 </script>
 
-<section class={classname}>
+<div class={classname}>
   <div>
     <slot />
   </div>
-</section>
+</div>
 
 <style scoped>
-  section {
+  div {
     display: flex;
     justify-content: center;
   }
 
-  section > div {
+  div > div {
     border-bottom: none;
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@
   }
 
   @media (max-width: 768px) {
-    section {
+    div {
       border-bottom: 1px solid #d0d1d3;
     }
   }

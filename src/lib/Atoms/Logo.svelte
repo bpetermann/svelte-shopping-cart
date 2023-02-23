@@ -1,12 +1,13 @@
 <script lang="ts">
   import svelteLogo from '../../assets/svelte.svg';
+  import Heading from './Heading.svelte';
 </script>
 
 <section>
   <div>
     <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
   </div>
-  <a href="/"> shopping cart </a>
+  <Heading tag="h3" color="#000">shopping cart</Heading>
 </section>
 
 <style>
@@ -24,18 +25,5 @@
   img {
     width: 100%;
     height: 100%;
-  }
-
-  a {
-    all: unset;
-    font-size: 22px;
-    font-weight: 700;
-    color: #000;
-  }
-
-  @media (max-width: 768px) {
-    a {
-      font-size: 18px;
-    }
   }
 </style>
