@@ -55,7 +55,7 @@
   section {
     display: flex;
     flex-direction: column;
-    padding: 16px 0px;
+    padding: 16px;
   }
 
   ul {
@@ -65,6 +65,5 @@
   .close {
     display: flex;
     justify-content: flex-end;
-    padding-right: 16px;
   }
 </style>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import CartModalProduct from '@/lib/Molecules/Cart/CartModalProduct.svelte';
   import type { Product } from '../../types/product.type';
+  import Close from '@/lib/Atoms/Buttons/Close.svelte';
   import Modal from '@/lib/Molecules/Modal.svelte';
   import { createEventDispatcher } from 'svelte';
   import i18n from '@/store/i18next-store';
@@ -30,6 +31,9 @@
   classname="cart"
 >
   <section>
+    <div class="close">
+      <Close on:click={() => dispatch('toggle')} classname="dark" />
+    </div>
     {#if !$cart.length}
       <button on:click={() => dispatch('toggle')}>{$i18n.t('No items')}</button>
     {:else}
@@ -66,6 +70,11 @@
     max-width: 300px;
     list-style-type: none;
     padding: 0;
+  }
+
+  .close {
+    display: flex;
+    justify-content: flex-end;
   }
 
   div {
