@@ -7,9 +7,9 @@
   import Text from '@/lib/Atoms/Text.svelte';
   import i18n from '@/store/i18next-store';
 
-  let email: string = '';
   let interestedIn: string = 'wfashion';
   let showToast: boolean = false;
+  let email: string = '';
 
   $: success = validEmail(email);
 
@@ -39,6 +39,7 @@
     {interestedIn}
   />
 </Container>
+
 {#if showToast}
   <Toast on:close={close} {success}>
     {$i18n.t(`${success ? 'Email was added' : 'Invalid input'}`)}
@@ -53,7 +54,6 @@
     margin-top: 16px;
     gap: 16px;
   }
-
 
   @media (max-width: 768px) {
     div {

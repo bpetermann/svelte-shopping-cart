@@ -3,38 +3,15 @@
   import Product from '@/lib/Molecules/Products/Product.svelte';
   import Container from '@/lib/Atoms/Container.svelte';
   import Spinner from '@/lib/Atoms/Spinner.svelte';
-  import favorites from '@/store/favorites-store';
   import category from '@/store/category-store';
   import products from '@/store/products-store';
   import searchTerm from '@/store/search-store';
   import { fade } from 'svelte/transition';
-  import cart from '@/store/cart-store';
   import { flip } from 'svelte/animate';
   import { onMount } from 'svelte';
 
   let loading: boolean = false;
   let errorMsg: string = null;
-
-  $: searchProducts = $products.filter((item) => {
-    return (
-      item.description.toLowerCase().includes($searchTerm.toLowerCase()) &&
-      item.category.includes($category)
-    );
-  });
-
-  const addToCart = ({ detail }: { detail: string }) => {
-    let product: ProductType = $products.find(
-      (product) => product.id === detail
-    );
-    cart.add(product);
-  };
-
-  const toggleFavorites = ({ detail }: { detail: string }) => {
-    let product: ProductType = $products.find(
-      (product) => product.id === detail
-    );
-    favorites.toggle(product);
-  };
 
   onMount(async () => {
     loading = true;
@@ -43,7 +20,7 @@
         `https://my-json-server.typicode.com/bpetermann/shopping-cart-jsonserver/storeItems`
       );
       const data = await res.json();
-      const items = data.map((i: Product) => {
+      const items = data.map((i: ProductType) => {
         return { ...i, category: i.category.concat(', Women') };
       });
       products.set([...items]);
@@ -51,6 +28,13 @@
       errorMsg = error.message || 'Something went wrong!';
     }
     loading = false;
+  });
+
+  $: searchProducts = $products.filter((item) => {
+    return (
+      item.description.toLowerCase().includes($searchTerm.toLowerCase()) &&
+      item.category.includes($category)
+    );
   });
 </script>
 
@@ -63,14 +47,7 @@
     <ul>
       {#each searchProducts as { id, name, price, description } (id)}
         <li transition:fade animate:flip={{ duration: 300 }}>
-          <Product
-            on:favorite={toggleFavorites}
-            on:get={addToCart}
-            {description}
-            {price}
-            {name}
-            {id}
-          />
+          <Product {description} {price} {name} {id} />
         </li>
       {/each}
     </ul>

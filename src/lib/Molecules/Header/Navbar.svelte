@@ -40,7 +40,7 @@
         <span>{favoritesLength}</span>
       {/if}
     </button>
-    <button on:click={() => dispatch('toggle')}>
+    <button on:click={() => dispatch('showCart')}>
       <img src="/images/cart.png" alt="cart" />
       {#if cartLength}
         <span>{cartLength}</span>

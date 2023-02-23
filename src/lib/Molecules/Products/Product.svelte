@@ -1,18 +1,29 @@
 <script lang="ts">
+  import type { Product as ProductType } from '@/types/product.type';
   import AddButton from '@/lib/Atoms/Buttons/AddButton.svelte';
   import favorites from '@/store/favorites-store';
-  import { createEventDispatcher } from 'svelte';
+  import products from '@/store/products-store';
   import Text from '@/lib/Atoms/Text.svelte';
-  const dispatch = createEventDispatcher();
+  import cart from '@/store/cart-store';
 
-  export let id: string;
-  export let name: string;
   export let description: string;
   export let price: number;
+  export let name: string;
+  export let id: string;
 
   let style: string = '';
 
   $: isFavorite = $favorites.find((item) => item.id === id);
+
+  const toggleFavorite = (id: string) => {
+    let product: ProductType = $products.find((product) => product.id === id);
+    favorites.toggle(product);
+  };
+
+  const addToCart = (id: string) => {
+    let product: ProductType = $products.find((product) => product.id === id);
+    cart.add(product);
+  };
 
   const addProduct = () => {
     style = 'loading';
@@ -20,8 +31,8 @@
       style = 'added';
       setTimeout(() => {
         style = '';
-        dispatch('get', id);
-        isFavorite && dispatch('favorite', id);
+        addToCart(id);
+        isFavorite && toggleFavorite(id);
       }, 750);
     }, 500);
   };
@@ -34,7 +45,7 @@
       alt={description}
       title={description}
     />
-    <button on:click={() => dispatch('favorite', id)}>
+    <button on:click={() => toggleFavorite(id)}>
       <img
         src="/images/favorite.png"
         alt="favorite"

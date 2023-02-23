@@ -9,6 +9,8 @@
   import cart from '@/store/cart-store';
   const dispatch = createEventDispatcher();
 
+  export let showCart: boolean;
+
   const updateProduct = ({
     detail,
   }: {
@@ -29,41 +31,44 @@
   }, 0);
 </script>
 
-<Modal
-  time={300}
-  on:click={() => dispatch('toggle')}
-  on:keypress={() => dispatch('toggle')}
-  classname="cart"
->
-  <div class="cart">
-    {#if !$cart.length}
-      <button on:click={() => dispatch('toggle')}>{$i18n.t('No items')}</button>
-    {:else}
-      <div class="close">
-        <Close on:click={() => dispatch('toggle')} classname="dark" />
-      </div>
-      <Heading tag="h3" color="#000"
-        >{$i18n.t('Cart')}{` (${cartLength})`}
-      </Heading>
-      <ul>
-        {#each $cart as { name, amount, price, id } (id)}
-          <CartModalProduct
-            on:get={updateProduct}
-            {name}
-            {amount}
-            {price}
-            {id}
-          />
-        {/each}
-      </ul>
-      <div>
-        <span>{$i18n.t('Total Amount')}</span>
-        <span>{totalPrice} $</span>
-      </div>
-      <button>{$i18n.t('Order')}</button>
-    {/if}
-  </div></Modal
->
+{#if showCart}
+  <Modal
+    time={300}
+    on:click={() => dispatch('close')}
+    on:keypress={() => dispatch('close')}
+    classname="cart"
+  >
+    <div class="cart">
+      {#if !$cart.length}
+        <button on:click={() => dispatch('close')}>{$i18n.t('No items')}</button
+        >
+      {:else}
+        <div class="close">
+          <Close on:click={() => dispatch('close')} classname="dark" />
+        </div>
+        <Heading tag="h3" color="#000"
+          >{$i18n.t('Cart')}{` (${cartLength})`}
+        </Heading>
+        <ul>
+          {#each $cart as { name, amount, price, id } (id)}
+            <CartModalProduct
+              on:get={updateProduct}
+              {name}
+              {amount}
+              {price}
+              {id}
+            />
+          {/each}
+        </ul>
+        <div>
+          <span>{$i18n.t('Total Amount')}</span>
+          <span>{totalPrice} $</span>
+        </div>
+        <button>{$i18n.t('Order')}</button>
+      {/if}
+    </div></Modal
+  >
+{/if}
 
 <style>
   .cart {

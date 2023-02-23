@@ -2,9 +2,9 @@
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
 
-  export let name: String;
   export let amount: number;
   export let price: number;
+  export let name: String;
   export let id: string;
 
   const sendDetails = (e: Event, id: string) => {
