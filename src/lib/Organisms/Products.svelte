@@ -33,7 +33,6 @@
     let product: ProductType = $products.find(
       (product) => product.id === detail
     );
-    console.log('RUNS')
     favorites.toggle(product);
   };
 

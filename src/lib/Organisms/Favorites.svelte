@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Product as ProductType } from '../../types/product.type';
   import Product from '@/lib/Molecules/Products/Product.svelte';
+  import Close from '@/lib/Atoms/Buttons/Close.svelte';
   import Modal from '@/lib/Molecules/Modal.svelte';
   import favorites from '@/store/favorites-store';
   import { createEventDispatcher } from 'svelte';
@@ -19,7 +20,6 @@
     let product: ProductType = $products.find(
       (product) => product.id === detail
     );
-    console.log('RUNS')
 
     favorites.toggle(product);
   };
@@ -32,6 +32,9 @@
   classname="favorites"
 >
   <section>
+    <div class="close">
+      <Close on:click={() => dispatch('toggle')} classname="dark" />
+    </div>
     <ul>
       {#each $favorites as { id, name, price, description } (id)}
         <Product
@@ -57,5 +60,11 @@
 
   ul {
     all: unset;
+  }
+
+  .close {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 16px;
   }
 </style>

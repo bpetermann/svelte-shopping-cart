@@ -10,7 +10,6 @@ const customFavoritesStore = {
       const existingFavoriteItem = items.find(
         (item) => item.name === product.name
       );
-      console.log(existingFavoriteItem)
       return !existingFavoriteItem
         ? [...items, product]
         : items.filter((item) => item.name !== product.name);

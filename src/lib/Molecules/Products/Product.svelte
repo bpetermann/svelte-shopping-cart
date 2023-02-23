@@ -13,7 +13,7 @@
   let style: string = '';
 
   $: isFavorite = $favorites.find((item) => item.id === id);
-  $: console.log($favorites);
+
   const addProduct = () => {
     style = 'loading';
     setTimeout(() => {
@@ -21,7 +21,6 @@
       setTimeout(() => {
         style = '';
         dispatch('get', id);
-        console.log(isFavorite);
         isFavorite && dispatch('favorite', id);
       }, 750);
     }, 500);
