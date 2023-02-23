@@ -31,12 +31,12 @@
   classname="cart"
 >
   <section>
-    <div class="close">
-      <Close on:click={() => dispatch('toggle')} classname="dark" />
-    </div>
     {#if !$cart.length}
       <button on:click={() => dispatch('toggle')}>{$i18n.t('No items')}</button>
     {:else}
+      <div class="close">
+        <Close on:click={() => dispatch('toggle')} classname="dark" />
+      </div>
       <ul>
         {#each $cart as { name, amount, price, id } (id)}
           <CartModalProduct
@@ -75,6 +75,7 @@
   .close {
     display: flex;
     justify-content: flex-end;
+    align-self: flex-end;
   }
 
   div {

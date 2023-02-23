@@ -29,10 +29,10 @@
     position: fixed;
     text-align: center;
     left: 30%;
-    top: 25%;
+    top: 15%;
     width: 40%;
     background-color: #fff;
-    overflow: scroll;
+    overflow-y: scroll;
     z-index: 10;
   }
 
