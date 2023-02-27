@@ -21,7 +21,7 @@
 
 ```
 git clone https://github.com/bpetermann/svelte-shopping-cart.git
-cd cv-application
+cd svelte-shopping-cart
 npm install
 npm run dev
 ```
