@@ -5,6 +5,25 @@ const cart: Writable<Product[]> = writable([]);
 
 const customCartStore = {
   subscribe: cart.subscribe,
+  get: (products: Product[]) => {
+    cart.update((items: Product[]) => {
+      if (!!localStorage.length) {
+        const initialCartItems = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const value = parseInt(localStorage.getItem(key));
+          const index = products.findIndex((item) => item.id === key);
+          if (index !== -1) {
+            initialCartItems.push({
+              ...products[index],
+              amount: value,
+            });
+          }
+        }
+        return (items = [...initialCartItems]);
+      }
+    });
+  },
   add: (product: Product) => {
     cart.update((items: Product[]) => {
       const existingCartItemIndex = items.findIndex(
@@ -19,8 +38,10 @@ const customCartStore = {
         };
         updatedCart = [...items];
         updatedCart[existingCartItemIndex] = updatedItem;
+        localStorage.setItem(product.id, updatedItem.amount.toString());
         return updatedCart;
       } else {
+        localStorage.setItem(product.id, product.amount.toString());
         return (items = [...items, product]);
       }
     });
@@ -39,8 +60,10 @@ const customCartStore = {
         };
         updatedCart = [...items];
         updatedCart[existingCartItemIndex] = updatedItem;
+        localStorage.setItem(product.id, updatedItem.amount.toString());
         return updatedCart;
       } else {
+        localStorage.removeItem(product.id);
         return items.filter((item) => item.name !== product.name);
       }
     });

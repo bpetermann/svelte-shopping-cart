@@ -3,11 +3,13 @@
   import Product from '@/lib/Molecules/Products/Product.svelte';
   import Container from '@/lib/Atoms/Container.svelte';
   import Spinner from '@/lib/Atoms/Spinner.svelte';
+  import favorites from '@/store/favorites-store';
   import category from '@/store/category-store';
   import products from '@/store/products-store';
   import searchTerm from '@/store/search-store';
   import { fade } from 'svelte/transition';
   import { flip } from 'svelte/animate';
+  import cart from '@/store/cart-store';
   import { onMount } from 'svelte';
 
   let loading: boolean = false;
@@ -24,6 +26,8 @@
         return { ...i, category: i.category.concat(', Women') };
       });
       products.set([...items]);
+      favorites.get([...items]);
+      cart.get([...items]);
     } catch (error) {
       errorMsg = error.message || 'Something went wrong!';
     }
