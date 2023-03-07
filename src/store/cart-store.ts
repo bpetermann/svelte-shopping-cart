@@ -7,21 +7,22 @@ const customCartStore = {
   subscribe: cart.subscribe,
   get: (products: Product[]) => {
     cart.update((items: Product[]) => {
-      if (!!localStorage.length) {
-        const initialCartItems = [];
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i);
-          const value = parseInt(localStorage.getItem(key));
-          const index = products.findIndex((item) => item.id === key);
-          if (index !== -1) {
-            initialCartItems.push({
-              ...products[index],
-              amount: value,
-            });
-          }
-        }
-        return (items = [...initialCartItems]);
+      if (!localStorage.length) {
+        return (items = []);
       }
+      const initialCartItems = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = parseInt(localStorage.getItem(key));
+        const index = products.findIndex((item) => item.id === key);
+        if (index !== -1) {
+          initialCartItems.push({
+            ...products[index],
+            amount: value,
+          });
+        }
+      }
+      return (items = [...initialCartItems]);
     });
   },
   add: (product: Product) => {

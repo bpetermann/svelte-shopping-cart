@@ -7,20 +7,19 @@ const customFavoritesStore = {
   subscribe: favorites.subscribe,
   get: (products: Product[]) => {
     favorites.update((items: Product[]) => {
-      if (!!localStorage.length) {
-        const initialFavoriteitems = [];
-        for (let i = 0; i < localStorage.length; i++) {
-          if (localStorage.key(i).includes('favorite')) {
-            const key = localStorage.key(i);
-            const value = localStorage.getItem(key);
-            const index = products.findIndex((item) => item.id === value);
-            if (index !== -1) {
-              initialFavoriteitems.push(products[index]);
-            }
-          }
+      const favoriteStorage = localStorage.getItem('favorites')
+        ? localStorage.getItem('favorites').split(', ')
+        : [];
+      if (!favoriteStorage.length) return (items = []);
+
+      const favorites = favoriteStorage.map((item) => {
+        const index = products.findIndex((product) => product.id === item);
+        if (index !== -1) {
+          return { ...products[index] };
         }
-        return (items = [...initialFavoriteitems]);
-      }
+      });
+
+      return (items = [...favorites]);
     });
   },
   toggle: (product: Product) => {
@@ -28,11 +27,26 @@ const customFavoritesStore = {
       const existingFavoriteItem = items.find(
         (item) => item.name === product.name
       );
+
+      const favoriteStorage = localStorage.getItem('favorites')
+        ? localStorage.getItem('favorites').split(', ')
+        : [];
+
       if (!existingFavoriteItem) {
-        localStorage.setItem(`favorite: ${product.id}`, product.id);
+        localStorage.setItem(
+          `favorites`,
+          favoriteStorage
+            .join(', ')
+            .concat(favoriteStorage.length ? `, ${product.id}` : product.id)
+        );
+
         return [...items, product];
       } else {
-        localStorage.removeItem(`favorite: ${product.id}`);
+        const storage = favoriteStorage.filter((item) => item !== product.id);
+        storage.length
+          ? localStorage.setItem(`favorites`, storage.join(', '))
+          : localStorage.removeItem(`favorites`);
+
         return items.filter((item) => item.name !== product.name);
       }
     });
