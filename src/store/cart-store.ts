@@ -1,3 +1,4 @@
+import { getStoreArray, updateStore } from '@/helpers/storage';
 import { writable, type Writable } from 'svelte/store';
 import type { Product } from '../types/product.type';
 
@@ -5,28 +6,30 @@ const cart: Writable<Product[]> = writable([]);
 
 const customCartStore = {
   subscribe: cart.subscribe,
-  get: (products: Product[]) => {
+  set: (products: Product[]) => {
     cart.update((items: Product[]) => {
-      if (!localStorage.length) {
+      const cartStorage = getStoreArray('cart');
+      if (!cartStorage.length) {
         return (items = []);
       }
-      const initialCartItems = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const value = parseInt(localStorage.getItem(key));
-        const index = products.findIndex((item) => item.id === key);
+      const initialCartItems = cartStorage.map((item) => {
+        const index = products.findIndex(
+          (product) => product.id === item.split(':')[0]
+        );
         if (index !== -1) {
-          initialCartItems.push({
+          return {
             ...products[index],
-            amount: value,
-          });
+            amount: parseInt(item.split(':')[1]),
+          };
         }
-      }
+      });
+
       return (items = [...initialCartItems]);
     });
   },
   add: (product: Product) => {
     cart.update((items: Product[]) => {
+      const cartStorage = getStoreArray('cart');
       const existingCartItemIndex = items.findIndex(
         (item) => item.name === product.name
       );
@@ -39,16 +42,21 @@ const customCartStore = {
         };
         updatedCart = [...items];
         updatedCart[existingCartItemIndex] = updatedItem;
-        localStorage.setItem(product.id, updatedItem.amount.toString());
+        const storage = cartStorage.filter(
+          (item) => !item.includes(product.id)
+        );
+        updateStore('cart', storage, `${product.id}:${updatedItem.amount}`);
         return updatedCart;
       } else {
-        localStorage.setItem(product.id, product.amount.toString());
+        updateStore('cart', cartStorage, `${product.id}:1`);
         return (items = [...items, product]);
       }
     });
   },
   remove: (product: Product) => {
     cart.update((items: Product[]) => {
+      const cartStorage = getStoreArray('cart');
+      const storage = cartStorage.filter((item) => !item.includes(product.id));
       const existingCartItemIndex = items.findIndex(
         (item) => item.name === product.name
       );
@@ -61,10 +69,13 @@ const customCartStore = {
         };
         updatedCart = [...items];
         updatedCart[existingCartItemIndex] = updatedItem;
-        localStorage.setItem(product.id, updatedItem.amount.toString());
+        updateStore('cart', storage, `${product.id}:${updatedItem.amount}`);
         return updatedCart;
       } else {
-        localStorage.removeItem(product.id);
+        storage.length
+          ? localStorage.setItem('cart', storage.join(', '))
+          : localStorage.removeItem('cart');
+
         return items.filter((item) => item.name !== product.name);
       }
     });

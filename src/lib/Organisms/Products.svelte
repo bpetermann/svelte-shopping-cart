@@ -26,8 +26,8 @@
         return { ...i, category: i.category.concat(', Women') };
       });
       products.set([...items]);
-      favorites.get([...items]);
-      cart.get([...items]);
+      favorites.set([...items]);
+      cart.set([...items]);
     } catch (error) {
       errorMsg = error.message || 'Something went wrong!';
     }
