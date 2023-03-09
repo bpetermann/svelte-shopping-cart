@@ -1,4 +1,4 @@
-import { getStoreArray, updateStore } from '@/helpers/storage';
+import { getStoreArray, updateStore, removeStore } from '@/helpers/storage';
 import { writable, type Writable } from 'svelte/store';
 import type { Product } from '../types/product.type';
 
@@ -72,10 +72,7 @@ const customCartStore = {
         updateStore('cart', storage, `${product.id}:${updatedItem.amount}`);
         return updatedCart;
       } else {
-        storage.length
-          ? localStorage.setItem('cart', storage.join(', '))
-          : localStorage.removeItem('cart');
-
+        storage.length ? updateStore('cart', storage) : removeStore('cart');
         return items.filter((item) => item.name !== product.name);
       }
     });

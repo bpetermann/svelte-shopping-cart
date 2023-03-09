@@ -1,4 +1,4 @@
-import { getStoreArray, updateStore } from '@/helpers/storage';
+import { getStoreArray, updateStore, removeStore } from '@/helpers/storage';
 import { writable, type Writable } from 'svelte/store';
 import type { Product } from '../types/product.type';
 
@@ -10,7 +10,6 @@ const customFavoritesStore = {
     favorites.update((items: Product[]) => {
       const favoriteStorage = getStoreArray('favorites');
       if (!favoriteStorage.length) return (items = []);
-
       const favorites = favoriteStorage.map((item) => {
         const index = products.findIndex((product) => product.id === item);
         if (index !== -1) {
@@ -34,9 +33,8 @@ const customFavoritesStore = {
       } else {
         const storage = favoriteStorage.filter((item) => item !== product.id);
         storage.length
-          ? localStorage.setItem(`favorites`, storage.join(', '))
-          : localStorage.removeItem(`favorites`);
-
+          ? updateStore(`favorites`, storage)
+          : removeStore(`favorites`);
         return items.filter((item) => item.name !== product.name);
       }
     });
