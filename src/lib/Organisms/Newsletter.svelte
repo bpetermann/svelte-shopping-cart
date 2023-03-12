@@ -29,7 +29,7 @@
 
 <Container classname={'newsletter'}>
   <div>
-    <Heading tag="h3" color="#000">{$i18n.t('JOIN OUR NEWSLETTER!')}</Heading>
+    <Heading tag="h2" color="#000">{$i18n.t('JOIN OUR NEWSLETTER!')}</Heading>
     <Text size="lg">{$i18n.t('Keep up to date')}</Text>
   </div>
   <NewsletterForm

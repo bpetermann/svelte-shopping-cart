@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<button on:click>
+<button on:click aria-label="toggle-navigation">
   <span />
   <span />
   <span />

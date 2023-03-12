@@ -5,7 +5,7 @@
 </script>
 
 <div>
-  <input {checked} type="radio" {name} {value} on:change />
+  <input {checked} type="radio" {name} {value} id={value} on:change />
   <label for={value}><slot /></label>
 </div>
 

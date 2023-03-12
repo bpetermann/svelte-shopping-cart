@@ -23,6 +23,7 @@
     font-size: 32px;
   }
 
+  h2,
   h3 {
     color: var(--color);
     font-size: 22px;
@@ -33,6 +34,8 @@
     h1 {
       font-size: 28px;
     }
+
+    h2,
     h3 {
       font-size: 18px;
     }
