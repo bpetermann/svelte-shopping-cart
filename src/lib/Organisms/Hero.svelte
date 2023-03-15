@@ -17,7 +17,7 @@
     </button>
   </div>
   <div class="image">
-    <img src="/images/model.png" alt="Model" />
+    <img src="/images/model.webp" alt="Model" />
   </div>
 </Container>
 

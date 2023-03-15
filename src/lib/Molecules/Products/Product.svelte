@@ -41,7 +41,7 @@
 <div class="container">
   <div class="image">
     <img
-      src="/images/products/{name}.png"
+      src="/images/products/{name}.webp"
       alt={description}
       title={description}
     />
