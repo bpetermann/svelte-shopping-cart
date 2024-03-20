@@ -12,7 +12,11 @@
   };
 </script>
 
-<select bind:value={selected} on:change={changeLanguage}>
+<select
+  bind:value={selected}
+  on:change={changeLanguage}
+  aria-label="Language select"
+>
   {#each languages as { id, text } (id)}
     <option value={text} selected={$i18n.resolvedLanguage === text}>
       {$i18n.t(`${text}`)}

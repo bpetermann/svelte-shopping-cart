@@ -44,7 +44,8 @@
   }
 
   button > img {
-    height: 100%;
+    height: 20px;
+    width: 20px;
     filter: invert(95%) sepia(0%) saturate(7500%) hue-rotate(26deg)
       brightness(107%) contrast(108%);
   }

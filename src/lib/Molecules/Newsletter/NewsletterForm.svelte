@@ -62,6 +62,7 @@
   img {
     height: 100%;
     max-height: 32px;
+    width: 32px;
     width: auto;
     filter: invert(95%) sepia(0%) saturate(7500%) hue-rotate(26deg)
       brightness(107%) contrast(108%);

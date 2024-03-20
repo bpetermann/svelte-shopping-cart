@@ -90,7 +90,8 @@
   }
 
   button > img {
-    height: 100%;
+    height: 22px;
+    width: 22px;
     width: auto;
   }
 

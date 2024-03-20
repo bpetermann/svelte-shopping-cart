@@ -69,6 +69,11 @@
     padding-right: 16px;
   }
 
+  button > img {
+    height: 22px;
+    width: 22px;
+  }
+
   img {
     height: 100%;
     width: auto;
